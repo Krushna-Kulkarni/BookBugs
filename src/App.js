@@ -2,7 +2,7 @@ import {Routes, Route} from "react-router-dom"
 import "./App.css";
 import Mockman from "mockman-js";
 import { Home } from "./pages/Home";
-import { Products } from "./pages/Products";
+import { Products } from "./pages/Products/Products";
 
 function App() {
   return (
