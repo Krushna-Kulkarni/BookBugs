@@ -4,7 +4,7 @@ import "./Products.css"
 
 export const Products
  = () => {
-    const {productsData} = useContext(ProductsContext)
+    const {sortFiltered, searchTextHandler, clearFilters, priceSliderHandler,checkboxHandler,radioHandler, sortHandler, searchClickHandler} = useContext(ProductsContext)
     
 
     return(
@@ -15,8 +15,8 @@ export const Products
                     <h1>BookBugs</h1>
                 </div>
                 <div className = "searchBarDiv">
-                    <input type="text" className = "searchbar" placeholder="Search books..."/>
-                    <button className = "searchbtn">Search</button>
+                    <input onChange = {(e)=>searchTextHandler(e.target.value)} type="text" className = "searchbar" placeholder="Search books..."/>
+                    <button onClick={searchClickHandler} className = "searchbtn">Search</button>
                 </div>
                 <div className = "profileDetailsDiv">
                     <p>Logout</p>
@@ -29,7 +29,7 @@ export const Products
                 <div className = "filterDiv">
                     <div className = "clearFilter">
                         <h3>Filters</h3>
-                        <h4>Clear</h4>
+                        <button onClick={clearFilters}>Clear</button>
                     </div>
                 <h3>Price</h3>
                     <div className = "price-range">
@@ -38,31 +38,31 @@ export const Products
                         <p>1000</p>
                     </div>
                     <div className = "SliderFilterDiv">
-                        <label><input className = "slider" type="range" min="100" max="1000" /></label> 
+                        <label><input onChange={(e)=>priceSliderHandler(e.target.value)} className = "slider" type="range" min="100" max="1000" /></label> 
                     </div>
                 <h3>Category</h3>
                     <div className = "CheckBoxFilterDiv">
                         
-                        <label><input type= "checkbox"/>Fiction</label> 
-                        <label><input type= "checkbox"/>Non-Fiction</label>
-                        <label><input type= "checkbox"/>Self Help</label>
+                        <label><input   onChange={(e)=>checkboxHandler(e.target.value)} value="Fiction" type= "checkbox"/>Fiction</label> 
+                        <label><input  onChange={(e)=>checkboxHandler(e.target.value)} value = "Non Fiction" type= "checkbox"/>Non-Fiction</label>
+                        <label><input  onChange={(e)=>checkboxHandler(e.target.value)} value="Self Help" type= "checkbox"/>Self Help</label>
                     </div>
                     <h3>Rating</h3>
                     <div className = "radioFilterDiv">
-                        <label><input type= "radio"  name="radio"/>1 star and above</label> 
-                        <label><input type= "radio" name="radio" />2 star and above</label>
-                        <label><input type= "radio"  name="radio"/>3 star and above</label> 
-                        <label><input type= "radio" name="radio" />4 star and above</label>
+                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio"  name="radio" value="1" />1 star and above</label> 
+                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio" name="radio"  value="2" />2 star and above</label>
+                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio"  name="radio" value="3" />3 star and above</label> 
+                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio" name="radio"  value="4" />4 star and above</label>
                     </div>
                     <h3>Sort By</h3>
                     <div className = "radioFilterDiv">
-                    <label><input type= "radio"  name="radio1"/>Price - Low To High</label> 
-                        <label><input type= "radio" name="radio1" />Price - High To Low</label>
+                    <label><input onChange={(e)=>sortHandler(e.target.value)} type= "radio"  name="radio1" value="lToH"/>Price - Low To High</label> 
+                        <label><input onChange={(e)=>sortHandler(e.target.value)} type= "radio" name="radio1" value="hToL"/>Price - High To Low</label>
                     </div>
                 </div>
                 <div className = "productsDiv">
               {
-                productsData.map((product)=>{
+                sortFiltered.map((product)=>{
                     const {name,img,author,price, rating, id} = product;
                     return (
                         <div key = {id} className = "productDiv">

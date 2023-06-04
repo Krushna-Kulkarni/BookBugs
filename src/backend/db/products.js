@@ -37,7 +37,7 @@ export const products = [
     price: 50,
     originalPrice: 500,
     isBestSeller: false,
-    category: "Fiction",
+    category: "Self Help",
     rating: 2,
   },
   {
@@ -115,7 +115,7 @@ export const products = [
     price: 699,
     originalPrice: 999,
     isBestSeller: false,
-    category: "Self Help",
+    category: "Fiction",
     rating: 4,
   },
   {
