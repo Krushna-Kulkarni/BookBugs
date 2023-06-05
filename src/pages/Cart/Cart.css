@@ -1,0 +1,110 @@
+.cartBox {
+    margin: 7rem auto auto auto;
+    display: flex;
+    flex-direction: column
+}
+
+.cartHeading {
+    text-align: center
+}
+
+.cart {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+
+
+.cartItem {
+    width: 40rem;
+    box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-right: 30rem;
+    margin-bottom: 2rem;
+}
+
+
+.cartItemDetailsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0.2rem 0.2rem;
+    border: 1px solid gray;
+}
+
+.quantity {
+    display: flex;
+    flex-direction: row;
+}
+
+.quantityDiv {
+    text-align: center;
+    margin: 0.1rem 0.1rem;
+    width: 25%;
+    border: 1px solid gray;
+}
+
+.cartItemActionBtns {
+
+    margin: 0.7rem 0.2rem 0.2rem 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.cartItemActionBtn {
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0 0.5rem 0;
+    background-color: steelblue;
+    color: white;
+    border-radius: 20px;
+    width: 20%;
+    align-items: center;
+}
+
+.cartItemsSummaryDiv {
+    position: fixed;
+    top: 12rem;
+    right: 4rem;
+    /* z-index: 9999; */
+    width: 25rem;
+    height: 18rem;
+    box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.couponDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2rem 0.2rem;
+    align-items: center;
+}
+
+.couponBtn {
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0 0.5rem 0;
+    background-color: steelblue;
+    color: white;
+    border-radius: 20px;
+    width: 30%;
+}
+
+.ItemDetailsandPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0 0.5rem;
+
+}
+
+.checkoutDiv {
+    padding: 0.2 0.2;
+    margin: 0.2 0.2;
+}

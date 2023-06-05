@@ -1,9 +1,9 @@
-.main{
+.main {
     display: flex;
     flex-direction: column;
 }
 
-.navigationDiv{
+.navigationDiv {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,103 +13,109 @@
     border-bottom: 1px solid gray;
     background-color: rgba(255, 255, 255, 0.95);
     color: steelblue;
-    position: fixed; top: 0; left: 0; z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
 
 }
 
 .logoDiv {
-    display:flex;
+    display: flex;
     align-items: center
 }
 
 .searchBarDiv {
-    display:flex;
+    display: flex;
     align-items: center
 }
 
-.searchbar{
+.searchbar {
     padding: 0.5rem 0.5rem;
     border-radius: 20px;
     width: 22rem;
 }
 
-.searchbtn{
+.searchbtn {
     padding: 0.5rem 0.5rem;
     background-color: steelblue;
     color: white;
     border-radius: 20px;
-    width:4rem;
+    width: 4rem;
     margin-left: 0.5rem;
 }
-.searchbtn:hover{
-    background-color:aliceblue;
-    color:black;
+
+.searchbtn:hover {
+    background-color: aliceblue;
+    color: black;
 }
 
-.profileDetailsDiv{
+.profileDetailsDiv {
     display: flex;
     flex-direction: row;
 
     justify-content: space-evenly;
     align-items: center
 }
-.profileDetailsDiv>p{
+
+.profileDetailsDiv>p {
     margin: 0.2rem 0.2rem;
     padding: 0.2rem 0.2rem;
 }
 
-.contentAndFilterDiv{
+.contentAndFilterDiv {
     display: flex;
     flex-direction: row;
     padding-top: 7%;
     overflow: hidden;
 }
 
-.filterDiv{
-    width:15rem;
+.filterDiv {
+    width: 15rem;
     height: 100%;
     display: flex;
     flex-direction: column;
     padding-left: 2rem;
     border-right: 2px solid gray;
-   
+
     position: fixed;
     top: 15%;
     left: 0;
- 
+
 }
 
-.clearFilter{
-    display:flex;
+.clearFilter {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width:10rem;
+    width: 10rem;
 }
 
-.price-range{
+.price-range {
     display: flex;
-    width:10rem;
+    width: 10rem;
     justify-content: space-between;
     grid-gap: 0.5rem;
     gap: 0.5rem;
-    
+
 }
 
-.slider{
-    width:10rem;
+.slider {
+    width: 10rem;
 }
 
 
-.CheckBoxFilterDiv{
-    display: flex;
-    flex-direction: column;
-}
-.radioFilterDiv{
+.CheckBoxFilterDiv {
     display: flex;
     flex-direction: column;
 }
 
-.productsDiv{
+.radioFilterDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.productsDiv {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -119,12 +125,12 @@
     top: 15%;
 }
 
-.productDiv{
+.productDiv {
     display: flex;
     flex-direction: column;
     width: 15rem;
-    height:26rem;
-    
+    height: 26rem;
+
     cursor: pointer;
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
     position: relative;
@@ -133,12 +139,12 @@
 }
 
 
-.card-img{
+.card-img {
     display: flex;
-   justify-content: space-around;
+    justify-content: space-around;
 }
 
-.wishlist-icon{
+.wishlist-icon {
     color: lightgray;
     position: absolute;
     display: inline-block;
@@ -148,63 +154,63 @@
     right: 1%;
     top: 1%;
 }
-.wishlist-icon:hover{
-    color:red;
+
+.wishlist-icon:hover {
+    color: red;
 }
 
-.card-details{
+.card-details {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.card-title-rating{
-    padding:0.2rem;
+.card-title-rating {
+    padding: 0.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.card-rating p{
+.card-rating p {
     display: flex;
-    color:white;
-    background-color:green;
+    color: white;
+    background-color: green;
     width: fit-content;
-   justify-content: space-around;
-    padding:0rem 0.1rem 0rem 0.1rem;
+    justify-content: space-around;
+    padding: 0rem 0.1rem 0rem 0.1rem;
 
 }
 
-.card-title>h4,p{
-    
+.card-title>h4,
+p {
+
     margin: 0;
 }
 
-.addToCartBtn{
+.addToCartBtn {
     display: flex;
     justify-content: flex-start;
     /* margin:  auto; */
-    margin:0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
 }
 
-.addToCart{
-    padding:0.5rem 0.5rem;
-    background-color:steelblue;
+.addToCart {
+    padding: 0.5rem 0.5rem;
+    background-color: steelblue;
     color: white;
-    border-radius:20px; 
+    border-radius: 20px;
     width: 100%;
-    
+
 }
 
-.addToCart:hover{
-    background-color:aliceblue;
-    color:black;
-    cursor:pointer;
+.addToCart:hover {
+    background-color: aliceblue;
+    color: black;
+    cursor: pointer;
 }
 
 
 
 
-@media screen and (max-width: 768px) {
-    
-}
+@media screen and (max-width: 768px) {}

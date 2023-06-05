@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { useContext } from "react";
 import "./Product.css"
+import { NavigationBar } from "../../components/NavigationBar";
 export const Product = () => {
     const { productsData } = useContext(ProductsContext)
     const { productId } = useParams();
@@ -9,6 +10,7 @@ export const Product = () => {
 
     return (
         <>
+            <NavigationBar />
             <h1 class="heading">Book Details</h1>
             <div classkey={currentProduct._id} className="product-Div">
                 <div className="img-Div"><img src={`${currentProduct.img}`} alt="book" width="250px" height="370px" /></div>

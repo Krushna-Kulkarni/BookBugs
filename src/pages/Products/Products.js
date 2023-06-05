@@ -2,30 +2,17 @@ import { useContext } from "react"
 import { ProductsContext } from "../../contexts/ProductsContext"
 import "./Products.css"
 import { NavLink } from "react-router-dom"
+import { NavigationBar } from "../../components/NavigationBar"
 
 export const Products
     = () => {
-        const { sortFiltered, searchTextHandler, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler, searchClickHandler } = useContext(ProductsContext)
+        const { sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
 
 
         return (
             <>
                 <div className="main">
-                    <div className="navigationDiv">
-                        <div className="logoDiv">
-                            <h1>BookBugs</h1>
-                        </div>
-                        <div className="searchBarDiv">
-                            <input onChange={(e) => searchTextHandler(e.target.value)} type="text" className="searchbar" placeholder="Search books..." />
-                            <button onClick={searchClickHandler} className="searchbtn">Search</button>
-                        </div>
-                        <div className="profileDetailsDiv">
-                            <p>Logout</p>
-                            <p><i class="fa fa-shopping-cart" aria-hidden="true"></i>(0)</p>
-                            <p><i class="fa fa-heart" aria-hidden="true"></i>(0)</p>
-                            <p>Profile</p>
-                        </div>
-                    </div>
+                    <NavigationBar />
                     <div className="contentAndFilterDiv">
                         <div className="filterDiv">
                             <div className="clearFilter">
