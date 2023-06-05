@@ -1,103 +1,105 @@
 import { useContext } from "react"
 import { ProductsContext } from "../../contexts/ProductsContext"
 import "./Products.css"
+import { NavLink } from "react-router-dom"
 
 export const Products
- = () => {
-    const {sortFiltered, searchTextHandler, clearFilters, priceSliderHandler,checkboxHandler,radioHandler, sortHandler, searchClickHandler} = useContext(ProductsContext)
-    
+    = () => {
+        const { sortFiltered, searchTextHandler, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler, searchClickHandler } = useContext(ProductsContext)
 
-    return(
-        <>
-        <div className = "main">
-            <div className = "navigationDiv">
-                <div className = "logoDiv">
-                    <h1>BookBugs</h1>
-                </div>
-                <div className = "searchBarDiv">
-                    <input onChange = {(e)=>searchTextHandler(e.target.value)} type="text" className = "searchbar" placeholder="Search books..."/>
-                    <button onClick={searchClickHandler} className = "searchbtn">Search</button>
-                </div>
-                <div className = "profileDetailsDiv">
-                    <p>Logout</p>
-                    <p><i class="fa fa-shopping-cart" aria-hidden="true"></i>(0)</p>
-                    <p><i class="fa fa-heart" aria-hidden="true"></i>(0)</p>
-                    <p>Profile</p>
-                </div>
-            </div>
-            <div className = "contentAndFilterDiv">
-                <div className = "filterDiv">
-                    <div className = "clearFilter">
-                        <h3>Filters</h3>
-                        <button onClick={clearFilters}>Clear</button>
-                    </div>
-                <h3>Price</h3>
-                    <div className = "price-range">
-                        <p>100</p>
-                        <p>500</p>
-                        <p>1000</p>
-                    </div>
-                    <div className = "SliderFilterDiv">
-                        <label><input onChange={(e)=>priceSliderHandler(e.target.value)} className = "slider" type="range" min="100" max="1000" /></label> 
-                    </div>
-                <h3>Category</h3>
-                    <div className = "CheckBoxFilterDiv">
-                        
-                        <label><input   onChange={(e)=>checkboxHandler(e.target.value)} value="Fiction" type= "checkbox"/>Fiction</label> 
-                        <label><input  onChange={(e)=>checkboxHandler(e.target.value)} value = "Non Fiction" type= "checkbox"/>Non-Fiction</label>
-                        <label><input  onChange={(e)=>checkboxHandler(e.target.value)} value="Self Help" type= "checkbox"/>Self Help</label>
-                    </div>
-                    <h3>Rating</h3>
-                    <div className = "radioFilterDiv">
-                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio"  name="radio" value="1" />1 star and above</label> 
-                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio" name="radio"  value="2" />2 star and above</label>
-                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio"  name="radio" value="3" />3 star and above</label> 
-                        <label><input onChange={(e)=>radioHandler(e.target.value)} type= "radio" name="radio"  value="4" />4 star and above</label>
-                    </div>
-                    <h3>Sort By</h3>
-                    <div className = "radioFilterDiv">
-                    <label><input onChange={(e)=>sortHandler(e.target.value)} type= "radio"  name="radio1" value="lToH"/>Price - Low To High</label> 
-                        <label><input onChange={(e)=>sortHandler(e.target.value)} type= "radio" name="radio1" value="hToL"/>Price - High To Low</label>
-                    </div>
-                </div>
-                <div className = "productsDiv">
-              {
-                sortFiltered.map((product)=>{
-                    const {name,img,author,price, rating, id} = product;
-                    return (
-                        <div key = {id} className = "productDiv">
-                        <div className = "card-img">
-                            <img src={`${img}`} alt="book" width="200px" height="300px"/>
+
+        return (
+            <>
+                <div className="main">
+                    <div className="navigationDiv">
+                        <div className="logoDiv">
+                            <h1>BookBugs</h1>
                         </div>
-                        <span role="button" class="wishlist-icon" disabled=""><i class="fa fa-heart" aria-hidden="true"></i></span>
-                        <div className = "card-details">
-                            <div className="card-title-rating">
-                            <div className = "card-title">
-                                <h4>{name}</h4>
-                                <p>{author}</p>
-                            </div>
-                            <div className = "card-rating">
-                            <p><small>{rating}&#9733;</small></p> 
-                            </div>
-                            </div>
-                            <div className = "card-price">
-                                <p><b>₹ {price}</b> </p>
-                            </div>
-                            <div className="addToCartBtn">
-                            <button className="addToCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
-                            </div>
-
-
+                        <div className="searchBarDiv">
+                            <input onChange={(e) => searchTextHandler(e.target.value)} type="text" className="searchbar" placeholder="Search books..." />
+                            <button onClick={searchClickHandler} className="searchbtn">Search</button>
+                        </div>
+                        <div className="profileDetailsDiv">
+                            <p>Logout</p>
+                            <p><i class="fa fa-shopping-cart" aria-hidden="true"></i>(0)</p>
+                            <p><i class="fa fa-heart" aria-hidden="true"></i>(0)</p>
+                            <p>Profile</p>
                         </div>
                     </div>
-                    )
-                })
-              }
-                
+                    <div className="contentAndFilterDiv">
+                        <div className="filterDiv">
+                            <div className="clearFilter">
+                                <h3>Filters</h3>
+                                <button onClick={clearFilters}>Clear</button>
+                            </div>
+                            <h3>Price</h3>
+                            <div className="price-range">
+                                <p>100</p>
+                                <p>500</p>
+                                <p>1000</p>
+                            </div>
+                            <div className="SliderFilterDiv">
+                                <label><input onChange={(e) => priceSliderHandler(e.target.value)} className="slider" type="range" min="100" max="1000" /></label>
+                            </div>
+                            <h3>Category</h3>
+                            <div className="CheckBoxFilterDiv">
+
+                                <label><input onChange={(e) => checkboxHandler(e.target.value)} value="Fiction" type="checkbox" />Fiction</label>
+                                <label><input onChange={(e) => checkboxHandler(e.target.value)} value="Non Fiction" type="checkbox" />Non-Fiction</label>
+                                <label><input onChange={(e) => checkboxHandler(e.target.value)} value="Self Help" type="checkbox" />Self Help</label>
+                            </div>
+                            <h3>Rating</h3>
+                            <div className="radioFilterDiv">
+                                <label><input onChange={(e) => radioHandler(e.target.value)} type="radio" name="radio" value="1" />1 star and above</label>
+                                <label><input onChange={(e) => radioHandler(e.target.value)} type="radio" name="radio" value="2" />2 star and above</label>
+                                <label><input onChange={(e) => radioHandler(e.target.value)} type="radio" name="radio" value="3" />3 star and above</label>
+                                <label><input onChange={(e) => radioHandler(e.target.value)} type="radio" name="radio" value="4" />4 star and above</label>
+                            </div>
+                            <h3>Sort By</h3>
+                            <div className="radioFilterDiv">
+                                <label><input onChange={(e) => sortHandler(e.target.value)} type="radio" name="radio1" value="lToH" />Price - Low To High</label>
+                                <label><input onChange={(e) => sortHandler(e.target.value)} type="radio" name="radio1" value="hToL" />Price - High To Low</label>
+                            </div>
+                        </div>
+                        <div className="productsDiv">
+                            {
+                                sortFiltered.map((product) => {
+                                    const { _id, name, img, author, price, rating } = product;
+                                    return (
+                                        <div classkey={_id} className="productDiv">
+
+                                            <div className="card-img">
+                                                <img src={`${img}`} alt="book" width="200px" height="300px" />
+                                            </div>
+                                            <span role="button" class="wishlist-icon" disabled=""><i class="fa fa-heart" aria-hidden="true"></i></span>
+                                            <div className="card-details">
+                                                <div className="card-title-rating">
+                                                    <div className="card-title">
+                                                        <h4 ><NavLink to={`/products/${_id}`}>{name}</NavLink> </h4>
+                                                        <p>{author}</p>
+                                                    </div>
+                                                    <div className="card-rating">
+                                                        <p><small>{rating}&#9733;</small></p>
+                                                    </div>
+                                                </div>
+                                                <div className="card-price">
+                                                    <p><b>₹ {price}</b> </p>
+                                                </div>
+                                                <div className="addToCartBtn">
+                                                    <button className="addToCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-       
-        </>
-    )
-}
+
+            </>
+        )
+    }

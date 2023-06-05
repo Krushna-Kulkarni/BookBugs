@@ -1,19 +1,21 @@
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import "./App.css";
 import Mockman from "mockman-js";
 import { Home } from "./pages/Home";
 import { Products } from "./pages/Products/Products";
+import { Product } from "./pages/Product/Product";
 
 function App() {
   return (
     <div className="App">
-     
+
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<Products/>}/>
-        <Route path="/mockman" element={<Mockman/>}/>
-        </Routes>
-      
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:productId" element={<Product />} />
+        <Route path="/mockman" element={<Mockman />} />
+      </Routes>
+
     </div>
   );
 }
