@@ -10,8 +10,13 @@
     justify-content: space-around;
     height: 6rem;
     width: 100%;
-    border-bottom: 1px solid gray;
-    background-color: rgba(255, 255, 255, 0.95);
+
+
+    background: linear-gradient(94.8deg, rgba(255, 255, 255, .1) 46.13%, rgba(255, 255, 255, .4) 59.11%);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, .1);
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+
     color: steelblue;
     position: fixed;
     top: 0;
