@@ -1,13 +1,20 @@
-import { useContext } from "react"
-import { ProductsContext } from "../../contexts/ProductsContext"
-import "./Products.css"
-import { NavLink } from "react-router-dom"
-import { NavigationBar } from "../../components/NavigationBar"
+import { createContext, useState } from "react"
 
-export const CartContext
-    = () => {
-        const { sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
 
+export const CartContext = createContext();
+export const CartProvider = ({ children }) => {
+
+    const [cart, setCart] = useState([]);
+
+    const addToCartHandler = (product) => {
+        cart.includes(product) ? setCart([...cart].filter((item) => item !== product)) : setCart([...cart, product]);
 
 
     }
+
+
+
+    return (<CartContext.Provider value={{ cart, addToCartHandler }}>
+        {children}
+    </CartContext.Provider>)
+}

@@ -8,6 +8,12 @@
     text-align: center
 }
 
+.emptyCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cart {
 
     display: flex;

@@ -1,10 +1,13 @@
 import { useContext } from "react"
 import { ProductsContext } from "../contexts/ProductsContext"
 import { NavLink } from "react-router-dom"
+import { CartContext } from "../contexts/CartContext"
+import { WishListContext } from "../contexts/WishListContext"
 
 export const NavigationBar = () => {
     const { searchTextHandler, searchClickHandler } = useContext(ProductsContext)
-
+    const { cart } = useContext(CartContext);
+    const { wishList } = useContext(WishListContext);
     return (
         <>
             <div className="navigationDiv">
@@ -17,8 +20,9 @@ export const NavigationBar = () => {
                 </div>
                 <div className="profileDetailsDiv">
                     <p>Logout</p>
-                    <p><NavLink to="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>(0)</NavLink></p>
-                    <p><i class="fa fa-heart" aria-hidden="true"></i>(0)</p>
+                    <p><NavLink to="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>({cart.length})</NavLink></p>
+                    <p><NavLink to="/wishList"><i class="fa fa-heart" aria-hidden="true"></i>({wishList.length})</NavLink></p>
+
                     <p>Profile</p>
                 </div>
             </div>

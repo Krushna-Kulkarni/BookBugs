@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { NavigationBar } from "../../components/NavigationBar"
+import { CartContext } from "../../contexts/CartContext"
 import "./Cart.css"
+import { WishListContext } from "../../contexts/WishListContext";
 export const Cart = () => {
+    const { cart, addToCartHandler } = useContext(CartContext);
+    const { wishList, addToWishListHandler } = useContext(WishListContext);
     return (
         <>
 
@@ -8,26 +13,35 @@ export const Cart = () => {
 
             <div className="cartBox">
                 <div className="cartHeading">
-                    <h2>My Cart(4)</h2>
+                    <h2>My Cart({cart.length})</h2>
                 </div>
-                <div className="cart">
+                {cart.length === 0 ? (<div className="emptyCart"><h3>There are no books in theIn The Cart</h3></div>) : (<div className="cart">
                     <div className="cartItemsDiv">
-                        <div className="cartItem">
-                            <div className="cartItemDetailsDiv">
-                                <div className="cartItemImg"><img src="https://m.media-amazon.com/images/I/71Kezi+HZeL._AC_UY327_FMwebp_QL65_.jpg" alt="cartItmImg" width="150px" height="250px" /></div>
-                                <div className="cartItemDetails">
-                                    <h4>BookName</h4>
-                                    <h4>₹ 450</h4>
-                                    <div className="quantity"><button>+</button>
-                                        <div type="Number" className="quantityDiv">0</div>
-                                        <button>-</button></div>
-                                </div>
-                            </div>
-                            <div className="cartItemActionBtns">
-                                <button className="cartItemActionBtn">Remove</button>
-                                <button className="cartItemActionBtn">Move to WishList</button>
-                            </div>
-                        </div>
+                        {
+                            cart.map((item) => {
+                                const { _id, name, img, author, price, rating } = item;
+                                return (
+                                    <div key={_id} className="cartItem">
+                                        <div className="cartItemDetailsDiv">
+                                            <div className="cartItemImg"><img src={`${img}`} alt="cartItmImg" width="150px" height="250px" /></div>
+                                            <div className="cartItemDetails">
+                                                <h4>{name}</h4>
+                                                <h5>Author: <b>{author}</b></h5>
+                                                <h5>Rating: <b>{rating}</b></h5>
+                                                <h4>₹ {price}</h4>
+                                                <div className="quantity"><button>+</button>
+                                                    <div type="Number" className="quantityDiv">0</div>
+                                                    <button>-</button></div>
+                                            </div>
+                                        </div>
+                                        <div className="cartItemActionBtns">
+                                            <button onClick={() => addToCartHandler(item)} className="cartItemActionBtn" >Remove</button>
+                                            {wishList.includes(item) ? (<button onClick={() => addToWishListHandler(item)} className="cartItemActionBtn">Remove From WishList</button>) : (<button onClick={() => addToWishListHandler(item)} className="cartItemActionBtn">Move to WishList</button>)}
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
 
                     </div>
                     <div className="cartItemsSummaryDiv">
@@ -56,7 +70,7 @@ export const Cart = () => {
                             <button className="actionBtn">CheckOut</button>
                         </div>
                     </div>
-                </div>
+                </div>)}
 
             </div>
         </>

@@ -3,11 +3,15 @@ import { ProductsContext } from "../../contexts/ProductsContext"
 import "./Products.css"
 import { NavLink } from "react-router-dom"
 import { NavigationBar } from "../../components/NavigationBar"
+import { CartContext } from "../../contexts/CartContext"
+import { WishListContext } from "../../contexts/WishListContext"
 
 export const Products
     = () => {
         const { sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
 
+        const { cart, addToCartHandler } = useContext(CartContext)
+        const { wishList, addToWishListHandler } = useContext(WishListContext);
 
         return (
             <>
@@ -53,12 +57,13 @@ export const Products
                                 sortFiltered.map((product) => {
                                     const { _id, name, img, author, price, rating } = product;
                                     return (
-                                        <div classkey={_id} className="productDiv">
+                                        <div key={_id} className="productDiv">
 
                                             <div className="card-img">
                                                 <img src={`${img}`} alt="book" width="200px" height="300px" />
                                             </div>
-                                            <span role="button" class="wishlist-icon" disabled=""><i class="fa fa-heart" aria-hidden="true"></i></span>
+                                            {wishList.includes(product) ? (<span onClick={() => addToWishListHandler(product)} role="button" class="wishlist-icon-filled" disabled=""><i class="fa fa-heart" aria-hidden="true"></i></span>) :
+                                                (<span onClick={() => addToWishListHandler(product)} role="button" class="wishlist-icon" disabled=""><i class="fa fa-heart" aria-hidden="true"></i></span>)}
                                             <div className="card-details">
                                                 <div className="card-title-rating">
                                                     <div className="card-title">
@@ -72,9 +77,11 @@ export const Products
                                                 <div className="card-price">
                                                     <p><b>₹ {price}</b> </p>
                                                 </div>
-                                                <div className="addToCartBtn">
-                                                    <button className="addToCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
-                                                </div>
+                                                {cart.includes(product) ? <div className="addToCartBtn">
+                                                    <button onClick={() => addToCartHandler(product)} className="addToCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Remove From Cart </button>
+                                                </div> : <div className="addToCartBtn">
+                                                    <button onClick={() => addToCartHandler(product)} className="addToCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
+                                                </div>}
 
 
                                             </div>

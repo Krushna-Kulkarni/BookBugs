@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { Products } from "./pages/Products/Products";
 import { Product } from "./pages/Product/Product";
 import { Cart } from "./pages/Cart/Cart";
+import { WishList } from "./pages/WishList/WishList";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishList" element={<WishList />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
 

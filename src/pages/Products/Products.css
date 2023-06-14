@@ -164,6 +164,18 @@
     color: red;
 }
 
+.wishlist-icon-filled {
+    color: lightgray;
+    position: absolute;
+    display: inline-block;
+    padding: 0.4rem 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    right: 1%;
+    top: 1%;
+    color: red;
+}
+
 .card-details {
     display: flex;
     flex-direction: column;
