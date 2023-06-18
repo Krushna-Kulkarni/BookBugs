@@ -4,7 +4,7 @@ import { CartContext } from "../../contexts/CartContext"
 import "./Cart.css"
 import { WishListContext } from "../../contexts/WishListContext";
 export const Cart = () => {
-    const { cart, addToCartHandler } = useContext(CartContext);
+    const { cart, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, applyCouponHandler, isCouponApplied, addToCartHandler } = useContext(CartContext);
     const { wishList, addToWishListHandler } = useContext(WishListContext);
     return (
         <>
@@ -15,11 +15,11 @@ export const Cart = () => {
                 <div className="cartHeading">
                     <h2>My Cart({cart.length})</h2>
                 </div>
-                {cart.length === 0 ? (<div className="emptyCart"><h3>There are no books in theIn The Cart</h3></div>) : (<div className="cart">
+                {cart.length === 0 ? (<div className="emptyCart"><h3>There are no books in the cart</h3></div>) : (<div className="cart">
                     <div className="cartItemsDiv">
                         {
                             cart.map((item) => {
-                                const { _id, name, img, author, price, rating } = item;
+                                const { _id, name, img, author, price, originalPrice, rating } = item;
                                 return (
                                     <div key={_id} className="cartItem">
                                         <div className="cartItemDetailsDiv">
@@ -28,7 +28,7 @@ export const Cart = () => {
                                                 <h4>{name}</h4>
                                                 <h5>Author: <b>{author}</b></h5>
                                                 <h5>Rating: <b>{rating}</b></h5>
-                                                <h4>₹ {price}</h4>
+                                                <h4><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </h4>
                                                 <div className="quantity"><button>+</button>
                                                     <div type="Number" className="quantityDiv">0</div>
                                                     <button>-</button></div>
@@ -46,8 +46,8 @@ export const Cart = () => {
                     </div>
                     <div className="cartItemsSummaryDiv">
                         <div className="couponDiv">
-                            <p>Have Coupon ?</p>
-                            <button className="couponBtn">Apply Coupon</button>
+                            <p>Get 5% off ?</p>
+                            <button disabled={isCouponApplied} onClick={() => applyCouponHandler()} className="couponBtn">Apply Coupon</button>
                         </div>
                         <div className="ItemDetailsandPrice">
                             <div className="ItemDetails">
@@ -58,15 +58,15 @@ export const Cart = () => {
                                 <p><b>Total Amount</b></p>
                             </div>
                             <div className="ItemPriceDetails">
-                                <p>123</p>
-                                <p>123</p>
-                                <p>123</p>
-                                <p>123</p>
-                                <p><b>12345</b></p>
+                                <p>₹{priceOfAllItems}</p>
+                                <p>₹{totalPriceDiscount}</p>
+                                <p>Free</p>
+                                <p>₹{couponDiscount}</p>
+                                <p><b>₹{totalPrice}</b></p>
                             </div>
                         </div>
                         <div className="checkoutDiv">
-                            <p>You will save 1234 on this order</p>
+                            <p className="discountPercentage">You will save ₹{totalPriceDiscount + couponDiscount} on this order</p>
                             <button className="actionBtn">CheckOut</button>
                         </div>
                     </div>

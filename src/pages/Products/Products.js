@@ -55,7 +55,7 @@ export const Products
                         <div className="productsDiv">
                             {
                                 sortFiltered.map((product) => {
-                                    const { _id, name, img, author, price, rating } = product;
+                                    const { _id, name, img, author, price, originalPrice, rating } = product;
                                     return (
                                         <div key={_id} className="productDiv">
 
@@ -75,7 +75,7 @@ export const Products
                                                     </div>
                                                 </div>
                                                 <div className="card-price">
-                                                    <p><b>₹ {price}</b> </p>
+                                                    <p><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </p>
                                                 </div>
                                                 {cart.includes(product) ? <div className="addToCartBtn">
                                                     <button onClick={() => addToCartHandler(product)} className="addToCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Remove From Cart </button>

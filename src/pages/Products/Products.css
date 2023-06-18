@@ -205,6 +205,11 @@ p {
     margin: 0;
 }
 
+
+.discountPercentage {
+    color: green;
+}
+
 .addToCartBtn {
     display: flex;
     justify-content: flex-start;

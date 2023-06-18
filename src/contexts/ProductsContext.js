@@ -100,6 +100,7 @@ export const ProductProvider = ({ children }) => {
     }
 
 
+
     return (<ProductsContext.Provider value={{ productsData, priceSliderHandler, radioHandler, sortHandler, searchTextHandler, checkboxHandler, searchClickHandler, sortFiltered, clearFilters }}>
         {children}
     </ProductsContext.Provider>)
