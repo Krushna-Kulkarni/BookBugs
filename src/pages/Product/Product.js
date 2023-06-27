@@ -20,9 +20,9 @@ export const Product = () => {
                         <h3>₹{currentProduct.price}</h3>
                     </div>
                     <div className="genericProductDetails">
-                        <p><i class="fa fa-tag" aria-hidden="true"></i> Fastest Delivery</p>
-                        <p><i class="fa fa-tag" aria-hidden="true"></i> Inclusive of All Taxes</p>
-                        <p><i class="fa fa-tag" aria-hidden="true"></i> Cash On Delivery Available</p>
+                        <p><i className="fa fa-tag" aria-hidden="true"></i> Fastest Delivery</p>
+                        <p><i className="fa fa-tag" aria-hidden="true"></i> Inclusive of All Taxes</p>
+                        <p><i className="fa fa-tag" aria-hidden="true"></i> Cash On Delivery Available</p>
                     </div>
                     <div className="productDetailsDiv">
                         <p><b>Author:</b> {currentProduct.author}</p>
@@ -31,9 +31,9 @@ export const Product = () => {
                         <p><b>Language:</b> English</p>
                     </div>
                     <div className="buttonsDiv">
-                        <button className="actionBtn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add To cart</button>
+                        <button className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To cart</button>
 
-                        <button className="actionBtn"><i class="fa fa-heart" aria-hidden="false"></i> Add To wishlist</button>
+                        <button className="actionBtn"><i className="fa fa-heart" aria-hidden="false"></i> Add To wishlist</button>
                     </div>
                 </div>
             </div>

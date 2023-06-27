@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from "react";
 export const ProductsContext = createContext();
 export const ProductProvider = ({ children }) => {
     const [productsData, setProductsData] = useState([])
-    const [searchText, setSearchText] = useState()
+    const [searchText, setSearchText] = useState("")
 
     const [myFilters, setMyFilters] = useState({
         textFilter: "",
@@ -37,7 +37,6 @@ export const ProductProvider = ({ children }) => {
 
 
     const searchClickHandler = () => {
-
         setMyFilters({ ...myFilters, textFilter: searchText })
     }
     const priceSliderHandler = (price) => {
@@ -71,7 +70,7 @@ export const ProductProvider = ({ children }) => {
 
 
 
-    const textFiltered = myFilters.textFilter.length > 0 ? [...productsData].filter(({ name, author }) => name.toLowerCase().includes(myFilters.textFilter.toLowerCase()) || author.toLowerCase().includes(myFilters.textFilter.toLowerCase())) : [...productsData]
+    const textFiltered = myFilters.textFilter?.length > 0 ? [...productsData].filter(({ name, author }) => name.toLowerCase().includes(myFilters.textFilter.toLowerCase()) || author.toLowerCase().includes(myFilters.textFilter.toLowerCase())) : [...productsData]
 
 
 
@@ -89,8 +88,8 @@ export const ProductProvider = ({ children }) => {
     const sortFiltered = myFilters.sortFilter.length > 0 ? [...ratingFiltered].sort((item1, item2) => myFilters.sortFilter === "lToH" ? item1?.price - item2?.price : item2?.price - item1?.price) : [...ratingFiltered]
 
     const clearFilters = () => {
+        setSearchText("");
         setMyFilters({
-            ...myFilters,
             textFilter: "",
             priceFilter: 0,
             categoryFilter: [],
@@ -101,7 +100,7 @@ export const ProductProvider = ({ children }) => {
 
 
 
-    return (<ProductsContext.Provider value={{ productsData, priceSliderHandler, radioHandler, sortHandler, searchTextHandler, checkboxHandler, searchClickHandler, sortFiltered, clearFilters }}>
+    return (<ProductsContext.Provider value={{ productsData, myFilters, searchText, priceSliderHandler, radioHandler, sortHandler, searchTextHandler, checkboxHandler, searchClickHandler, sortFiltered, clearFilters }}>
         {children}
     </ProductsContext.Provider>)
 }
