@@ -1,9 +1,17 @@
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { useContext } from "react";
 import "./Product.css"
 import { NavigationBar } from "../../components/NavigationBar";
+import { WishListContext } from "../../contexts/WishListContext";
+import { CartContext } from "../../contexts/CartContext";
+import { ToastContext } from "../../contexts/ToastContext";
 export const Product = () => {
+
+    const { cart, addToCartHandler } = useContext(CartContext)
+    const { wishList, addToWishListHandler } = useContext(WishListContext);
+    const { notify } = useContext(ToastContext)
+
     const { productsData } = useContext(ProductsContext)
     const { productId } = useParams();
     const currentProduct = productsData.find(({ _id }) => productId === _id)
@@ -31,9 +39,13 @@ export const Product = () => {
                         <p><b>Language:</b> English</p>
                     </div>
                     <div className="buttonsDiv">
-                        <button className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To cart</button>
+                        {cart.includes(currentProduct) ?
+                            <button className="actionBtn"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Go to Cart </NavLink></button>
+                            :
+                            <button onClick={() => { notify("addToCart"); addToCartHandler(currentProduct) }} className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
+                        }
 
-                        <button className="actionBtn"><i className="fa fa-heart" aria-hidden="false"></i> Add To wishlist</button>
+                        {wishList.includes(currentProduct) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Move to WishList</button>)}
                     </div>
                 </div>
             </div>
