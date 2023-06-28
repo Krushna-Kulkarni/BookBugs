@@ -74,7 +74,7 @@ export const ProductProvider = ({ children }) => {
 
 
 
-    const priceFiltered = myFilters.priceFilter > 0 ? [...textFiltered].filter(({ price }) => price >= myFilters.priceFilter) : [...textFiltered]
+    const priceFiltered = myFilters.priceFilter > 0 ? [...textFiltered].filter(({ price }) => price <= myFilters.priceFilter) : [...textFiltered]
 
 
 

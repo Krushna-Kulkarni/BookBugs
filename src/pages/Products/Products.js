@@ -28,9 +28,9 @@ export const Products
                         <div className="filterDiv">
                             <div className="clearFilter">
                                 <h3>Filters</h3>
-                                <button onClick={clearFilters}>Clear</button>
+                                <button className="clearFilterBtn" onClick={clearFilters}>Clear</button>
                             </div>
-                            <h3>Price</h3>
+                            <h3>Price : {priceFilter}</h3>
                             <div className="price-range">
                                 <p>100</p>
                                 <p>500</p>
