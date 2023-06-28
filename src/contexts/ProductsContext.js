@@ -78,7 +78,7 @@ export const ProductProvider = ({ children }) => {
 
 
 
-    const categoryFiltered = myFilters.categoryFilter.length > 0 ? [...priceFiltered].filter(({ category }) => myFilters.categoryFilter.every((item) => item !== category)) : [...priceFiltered]
+    const categoryFiltered = myFilters.categoryFilter.length > 0 ? [...priceFiltered].filter(({ category }) => myFilters.categoryFilter.includes(category)) : [...priceFiltered]
 
 
     const ratingFiltered = myFilters.ratingFilter > 0 ? [...categoryFiltered].filter(({ rating }) => rating >= myFilters.ratingFilter) : [...categoryFiltered];
