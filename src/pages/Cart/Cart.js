@@ -4,7 +4,7 @@ import { CartContext } from "../../contexts/CartContext"
 import "./Cart.css"
 import { WishListContext } from "../../contexts/WishListContext";
 export const Cart = () => {
-    const { cart, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, applyCouponHandler, isCouponApplied, addToCartHandler } = useContext(CartContext);
+    const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, applyCouponHandler, isCouponApplied, removeFromCartCartHandler, productQuantityIncrement, productQuantityDecrement } = useContext(CartContext);
     const { wishList, addToWishListHandler } = useContext(WishListContext);
     return (
         <>
@@ -19,7 +19,7 @@ export const Cart = () => {
                     <div className="cartItemsDiv">
                         {
                             cart.map((item) => {
-                                const { _id, name, img, author, price, originalPrice, rating } = item;
+                                const { _id, name, img, author, price, originalPrice, rating, quantity } = item;
                                 return (
                                     <div key={_id} className="cartItem">
                                         <div className="cartItemDetailsDiv">
@@ -29,13 +29,13 @@ export const Cart = () => {
                                                 <h5>Author: <b>{author}</b></h5>
                                                 <h5>Rating: <b>{rating}</b></h5>
                                                 <h4><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </h4>
-                                                <div className="quantity"><button>+</button>
-                                                    <div type="Number" className="quantityDiv">0</div>
-                                                    <button>-</button></div>
+                                                <div className="quantity"><button onClick={() => productQuantityDecrement(item)} disabled={quantity === 1}>-</button>
+                                                    <div type="Number" className="quantityDiv">{quantity}</div>
+                                                    <button onClick={() => productQuantityIncrement(item)}>+</button></div>
                                             </div>
                                         </div>
                                         <div className="cartItemActionBtns">
-                                            <button onClick={() => addToCartHandler(item)} className="cartItemActionBtn" >Remove</button>
+                                            <button onClick={() => removeFromCartCartHandler(item)} className="cartItemActionBtn" >Remove</button>
                                             {wishList.includes(item) ? (<button onClick={() => addToWishListHandler(item)} className="cartItemActionBtn">Remove From WishList</button>) : (<button onClick={() => addToWishListHandler(item)} className="cartItemActionBtn">Move to WishList</button>)}
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@ export const Cart = () => {
                         </div>
                         <div className="ItemDetailsandPrice">
                             <div className="ItemDetails">
-                                <p>Price</p>
+                                <p>Price : ({totalItems} items)</p>
                                 <p>Discount</p>
                                 <p>Delivery Charges</p>
                                 <p>Coupon Discount</p>

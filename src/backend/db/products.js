@@ -16,6 +16,7 @@ export const products = [
     isBestSeller: true,
     category: "Self Help",
     rating: 4.6,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -27,6 +28,7 @@ export const products = [
     isBestSeller: false,
     category: "Self Help",
     rating: 4,
+    quantity: 1
   },
 
   {
@@ -39,6 +41,7 @@ export const products = [
     isBestSeller: false,
     category: "Self Help",
     rating: 2,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -50,6 +53,7 @@ export const products = [
     isBestSeller: true,
     category: "Self Help",
     rating: 4.8,
+    quantity: 1
   },
 
   {
@@ -62,6 +66,7 @@ export const products = [
     isBestSeller: false,
     category: "Non Fiction",
     rating: 4,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -73,6 +78,7 @@ export const products = [
     isBestSeller: false,
     category: "Non Fiction",
     rating: 2,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -84,6 +90,7 @@ export const products = [
     isBestSeller: false,
     category: "Non Fiction",
     rating: 3,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -95,6 +102,7 @@ export const products = [
     isBestSeller: false,
     category: "Fiction",
     rating: 3,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -106,6 +114,7 @@ export const products = [
     isBestSeller: false,
     category: "Fiction",
     rating: 2.5,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -117,6 +126,7 @@ export const products = [
     isBestSeller: false,
     category: "Fiction",
     rating: 4,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -128,6 +138,7 @@ export const products = [
     isBestSeller: false,
     category: "Self Help",
     rating: 3.5,
+    quantity: 1
   },
   {
     _id: uuid(),
@@ -139,5 +150,6 @@ export const products = [
     isBestSeller: false,
     category: "Non Fiction",
     rating: 1,
+    quantity: 1
   },
 ];
