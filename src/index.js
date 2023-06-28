@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { ProductsContext, ProductProvider } from "./contexts/ProductsContext";
 import { CartContext, CartProvider } from "./contexts/CartContext";
 import { WishListContext, WishListProvider } from "./contexts/WishListContext";
+import { ToastContext, ToastProvider } from "./contexts/ToastContext";
 
 
 const rootElement = document.getElementById("root");
@@ -14,14 +15,16 @@ const root = createRoot(rootElement);
 
 // Call make Server
 makeServer();
-export { ProductsContext, CartContext, WishListContext }
+export { ProductsContext, CartContext, WishListContext, ToastContext }
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ProductProvider>
         <CartProvider>
           <WishListProvider>
-            <App />
+            <ToastProvider>
+              <App />
+            </ToastProvider>
           </WishListProvider>
         </CartProvider>
       </ProductProvider>

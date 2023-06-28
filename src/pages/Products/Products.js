@@ -5,13 +5,14 @@ import { NavLink } from "react-router-dom"
 import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import { WishListContext } from "../../contexts/WishListContext"
+import { ToastContext } from "../../contexts/ToastContext"
 
 export const Products
     = () => {
         const { myFilters, sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
-
         const { cart, addToCartHandler } = useContext(CartContext)
         const { wishList, addToWishListHandler } = useContext(WishListContext);
+        const { notify } = useContext(ToastContext)
 
         const {
             priceFilter,
@@ -68,8 +69,8 @@ export const Products
                                             <div className="card-img">
                                                 <img src={`${img}`} alt="book" width="200px" height="300px" />
                                             </div>
-                                            {wishList.includes(product) ? (<span onClick={() => addToWishListHandler(product)} role="button" className="wishlist-icon-filled" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>) :
-                                                (<span onClick={() => addToWishListHandler(product)} role="button" className="wishlist-icon" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>)}
+                                            {wishList.includes(product) ? (<span onClick={() => { notify("removeFromWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon-filled" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>) :
+                                                (<span onClick={() => { notify("addToWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>)}
                                             <div className="card-details">
                                                 <div className="card-title-rating">
                                                     <div className="card-title">
@@ -86,7 +87,7 @@ export const Products
                                                 {cart.includes(product) ? <div className="addToCartBtn">
                                                     <button className="addToCart"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Go to Cart </NavLink></button>
                                                 </div> : <div className="addToCartBtn">
-                                                    <button onClick={() => addToCartHandler(product)} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
+                                                    <button onClick={() => { notify("addToCart"); addToCartHandler(product) }} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                                                 </div>}
 
 
@@ -98,7 +99,7 @@ export const Products
 
                         </div>
                     </div>
-                </div>
+                </div >
 
             </>
         )

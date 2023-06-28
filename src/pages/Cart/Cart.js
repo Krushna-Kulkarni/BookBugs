@@ -3,9 +3,11 @@ import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Cart.css"
 import { WishListContext } from "../../contexts/WishListContext";
+import { ToastContext } from "../../contexts/ToastContext";
 export const Cart = () => {
     const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, applyCouponHandler, isCouponApplied, removeFromCartCartHandler, productQuantityIncrement, productQuantityDecrement } = useContext(CartContext);
     const { wishList, addToWishListHandler } = useContext(WishListContext);
+    const { notify } = useContext(ToastContext);
     return (
         <>
 
@@ -35,8 +37,8 @@ export const Cart = () => {
                                             </div>
                                         </div>
                                         <div className="cartItemActionBtns">
-                                            <button onClick={() => removeFromCartCartHandler(item)} className="cartItemActionBtn" >Remove</button>
-                                            {wishList.includes(item) ? (<button onClick={() => addToWishListHandler(item)} className="cartItemActionBtn">Remove From WishList</button>) : (<button onClick={() => addToWishListHandler(item)} className="cartItemActionBtn">Move to WishList</button>)}
+                                            <button onClick={() => { notify("removeFromCart"); removeFromCartCartHandler(item) }} className="cartItemActionBtn" >Remove</button>
+                                            {wishList.includes(item) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="cartItemActionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(item) }} className="cartItemActionBtn">Move to WishList</button>)}
                                         </div>
                                     </div>
                                 )

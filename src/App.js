@@ -7,6 +7,9 @@ import { Product } from "./pages/Product/Product";
 import { Cart } from "./pages/Cart/Cart";
 import { WishList } from "./pages/WishList/WishList";
 
+import { ToastContainer } from 'react-toastify';
+
+
 function App() {
   return (
     <div className="App">
@@ -19,7 +22,7 @@ function App() {
         <Route path="/wishList" element={<WishList />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
-
+      <ToastContainer />
     </div>
   );
 }
