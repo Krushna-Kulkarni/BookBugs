@@ -69,8 +69,13 @@
     background-color: steelblue;
     color: white;
     border-radius: 20px;
-    width: 20%;
+    width: 12rem;
     align-items: center;
+}
+
+.cartItemActionBtn:hover {
+    background-color: aliceblue;
+    color: black;
 }
 
 .cartItemsSummaryDiv {
@@ -99,6 +104,11 @@
     color: white;
     border-radius: 20px;
     width: 30%;
+}
+
+.couponBtn:hover {
+    background-color: aliceblue;
+    color: black;
 }
 
 .ItemDetailsandPrice {
