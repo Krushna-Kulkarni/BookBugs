@@ -37,7 +37,7 @@ export const WishList = () => {
                                             </div>
                                         </div>
                                         <div className="wishListItemActionBtns">
-                                            {cart.includes(item) ?
+                                            {cart.find((product) => product._id === item._id) ?
                                                 <button className="wishListItemActionBtn"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Go to Cart </NavLink></button>
                                                 :
                                                 <button onClick={() => { notify("addToCart"); addToCartHandler(item) }} className="wishListItemActionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>

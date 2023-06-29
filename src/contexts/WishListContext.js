@@ -7,7 +7,7 @@ export const WishListProvider = ({ children }) => {
     const [wishList, setWishList] = useState([]);
 
     const addToWishListHandler = (product) => {
-        wishList.includes(product) ? setWishList([...wishList].filter((item) => item !== product)) : setWishList([...wishList, product]);
+        wishList.find((item) => item._id === product._id) ? setWishList([...wishList].filter((item) => item._id !== product._id)) : setWishList([...wishList, product]);
 
 
     }

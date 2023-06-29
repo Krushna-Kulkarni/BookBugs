@@ -21,11 +21,6 @@ export const CartProvider = ({ children }) => {
     }
 
     const productQuantityIncrement = (product) => {
-        console.log()
-        // const cartWithIncrementedQuantityOfProducts = [...cart].map((item) =>
-        //     item._id === product._id ? { ...item, quantity: item.quantity++ } : item
-        // )
-        // setCart(cartWithIncrementedQuantityOfProducts)
         setCart([...cart].map((item) =>
             item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
         ))

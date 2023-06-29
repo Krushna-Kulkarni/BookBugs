@@ -39,13 +39,13 @@ export const Product = () => {
                         <p><b>Language:</b> English</p>
                     </div>
                     <div className="buttonsDiv">
-                        {cart.includes(currentProduct) ?
+                        {cart.find((product) => product._id === currentProduct._id) ?
                             <button className="actionBtn"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Go to Cart </NavLink></button>
                             :
                             <button onClick={() => { notify("addToCart"); addToCartHandler(currentProduct) }} className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                         }
 
-                        {wishList.includes(currentProduct) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Move to WishList</button>)}
+                        {wishList.find((product) => product._id === currentProduct._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Move to WishList</button>)}
                     </div>
                 </div>
             </div>

@@ -40,7 +40,7 @@ export const Cart = () => {
                                         </div>
                                         <div className="cartItemActionBtns">
                                             <button onClick={() => { notify("removeFromCart"); removeFromCartCartHandler(item) }} className="cartItemActionBtn" >Remove</button>
-                                            {wishList.includes(item) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="cartItemActionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(item) }} className="cartItemActionBtn">Move to WishList</button>)}
+                                            {wishList.find((product) => product._id === item._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="cartItemActionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(item) }} className="cartItemActionBtn">Move to WishList</button>)}
                                         </div>
                                     </div>
                                 )

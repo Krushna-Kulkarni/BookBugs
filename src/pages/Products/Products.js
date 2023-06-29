@@ -69,7 +69,7 @@ export const Products
                                             <div className="card-img">
                                                 <img src={`${img}`} alt="book" width="200px" height="300px" />
                                             </div>
-                                            {wishList.includes(product) ? (<span onClick={() => { notify("removeFromWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon-filled" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>) :
+                                            {wishList.find((item) => item._id === product._id) ? (<span onClick={() => { notify("removeFromWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon-filled" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>) :
                                                 (<span onClick={() => { notify("addToWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>)}
                                             <div className="card-details">
                                                 <div className="card-title-rating">
@@ -84,7 +84,7 @@ export const Products
                                                 <div className="card-price">
                                                     <p><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </p>
                                                 </div>
-                                                {cart.includes(product) ? <div className="addToCartBtn">
+                                                {cart.find((item) => item._id === product._id) ? <div className="addToCartBtn">
                                                     <button className="addToCart"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Go to Cart </NavLink></button>
                                                 </div> : <div className="addToCartBtn">
                                                     <button onClick={() => { notify("addToCart"); addToCartHandler(product) }} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
