@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Cart.css"
@@ -27,13 +28,14 @@ export const Cart = () => {
                                         <div className="cartItemDetailsDiv">
                                             <div className="cartItemImg"><img src={`${img}`} alt="cartItmImg" width="150px" height="250px" /></div>
                                             <div className="cartItemDetails">
-                                                <h4>{name}</h4>
+                                                <h4><NavLink to={`/products/${_id}`}>{name}</NavLink></h4>
                                                 <h5>Author: <b>{author}</b></h5>
                                                 <h5>Rating: <b>{rating}</b></h5>
                                                 <h4><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </h4>
-                                                <div className="quantity"><button onClick={() => productQuantityDecrement(item)} disabled={quantity === 1}>-</button>
+                                                <div className="quantity">
+                                                    <button className="decrement" onClick={() => productQuantityDecrement(item)} disabled={quantity === 1}>-</button>
                                                     <div type="Number" className="quantityDiv">{quantity}</div>
-                                                    <button onClick={() => productQuantityIncrement(item)}>+</button></div>
+                                                    <button className="increment" onClick={() => productQuantityIncrement(item)}>+</button></div>
                                             </div>
                                         </div>
                                         <div className="cartItemActionBtns">

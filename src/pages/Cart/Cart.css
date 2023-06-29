@@ -43,6 +43,31 @@
     border: 1px solid gray;
 }
 
+.increment,
+.decrement {
+    padding: 0.1rem 0.1rem;
+    margin: 0.1rem 0 0.1rem 0;
+    background-color: steelblue;
+    color: white;
+    border-radius: 2px;
+    width: 2rem;
+    align-items: center;
+}
+
+
+.increment:hover,
+.decrement:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+.decrement:disabled,
+.decrement[disabled] {
+    color: gray;
+    background-color: gainsboro;
+
+}
+
 .quantity {
     display: flex;
     flex-direction: row;

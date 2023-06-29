@@ -254,4 +254,15 @@ p {
 
 
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+
+    .filterDiv {
+        display: none;
+    }
+
+    .productsDiv {
+        margin-top: 10%;
+        margin-left: 2rem;
+    }
+
+}
