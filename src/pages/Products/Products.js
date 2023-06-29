@@ -66,9 +66,9 @@ export const Products
                                     return (
                                         <div key={_id} className="productDiv">
 
-                                            <div className="card-img">
+                                            <NavLink to={`/products/${_id}`}><div className="card-img">
                                                 <img src={`${img}`} alt="book" width="200px" height="300px" />
-                                            </div>
+                                            </div></NavLink>
                                             {wishList.find((item) => item._id === product._id) ? (<span onClick={() => { notify("removeFromWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon-filled" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>) :
                                                 (<span onClick={() => { notify("addToWishlist"); addToWishListHandler(product) }} role="button" className="wishlist-icon" disabled=""><i className="fa fa-heart" aria-hidden="true"></i></span>)}
                                             <div className="card-details">
