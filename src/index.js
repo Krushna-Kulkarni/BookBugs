@@ -9,6 +9,7 @@ import { CartContext, CartProvider } from "./contexts/CartContext";
 import { WishListContext, WishListProvider } from "./contexts/WishListContext";
 import { ToastContext, ToastProvider } from "./contexts/ToastContext";
 
+import ScrollToTop from "./helpers/ScrollToTop";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -23,6 +24,7 @@ root.render(
         <CartProvider>
           <WishListProvider>
             <ToastProvider>
+              <ScrollToTop />
               <App />
             </ToastProvider>
           </WishListProvider>
