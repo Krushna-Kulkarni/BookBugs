@@ -83,7 +83,7 @@
     justify-content: center;
     align-items: center;
 
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
     color: steelblue;
 
@@ -114,6 +114,33 @@
 }
 
 .footer {
-    height: 7rem;
-    border: 2px solid red;
+    height: 3rem;
+    border: 1px solid steelblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerHeader {
+    font-size: 1.3rem;
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+
+}
+
+a {}
+
+.link {
+    font-size: 1.5rem;
+    color: steelblue;
+    padding: 0.2rem 0.2rem;
+    margin: 0.2rem 0.2rem;
 }

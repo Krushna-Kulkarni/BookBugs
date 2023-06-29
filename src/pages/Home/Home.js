@@ -45,10 +45,21 @@ export const Home = () => {
                 </div>
 
                 <div className="footer">
+                    <div className="footerHeader">Made with {`</>`} by Krushna Kulkarni</div>
+                    <div className="socialLinks">
 
+                        <a className="link" href="https://github.com/Krushna-Kulkarni" rel="noopener noreferrer" target="_blank"><i class="fa fa-github"></i></a>
+
+
+                        <a className="link" href="https://twitter.com/Krushnatweets" rel="noopener noreferrer" target="_blank"><i class="fa fa-twitter"></i></a>
+
+
+                        <a className="link" href="https://linkedin.com/in/krushna-kulkarni" rel="noopener noreferrer" target="_blank"><i class="fa fa-linkedin"></i></a>
+
+                    </div>
                 </div>
 
             </div>
-        </div>
+        </div >
     )
 }
