@@ -133,9 +133,18 @@
     width: 30%;
 }
 
+
+
 .couponBtn:hover {
     background-color: aliceblue;
     color: black;
+}
+
+.couponBtn:disabled,
+.couponBtn[disabled] {
+    color: gray;
+    background-color: gainsboro;
+
 }
 
 .ItemDetailsandPrice {
