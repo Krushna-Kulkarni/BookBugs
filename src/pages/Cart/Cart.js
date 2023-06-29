@@ -26,7 +26,7 @@ export const Cart = () => {
                                 return (
                                     <div key={_id} className="cartItem">
                                         <div className="cartItemDetailsDiv">
-                                            <div className="cartItemImg"><img src={`${img}`} alt="cartItmImg" width="150px" height="250px" /></div>
+                                            <NavLink to={`/products/${_id}`}> <div className="cartItemImg"><img src={`${img}`} alt="cartItmImg" width="150px" height="250px" /></div></NavLink>
                                             <div className="cartItemDetails">
                                                 <h4><NavLink to={`/products/${_id}`}>{name}</NavLink></h4>
                                                 <h5>Author: <b>{author}</b></h5>
