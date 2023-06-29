@@ -1,0 +1,15 @@
+.profileBox {
+    margin: 7rem auto auto auto;
+    display: flex;
+    flex-direction: column
+}
+
+.profileHeading {
+    text-align: center
+}
+
+.userNotLoggedIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
