@@ -37,6 +37,7 @@
 }
 
 .searchbtn {
+    border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     background-color: steelblue;
     color: white;

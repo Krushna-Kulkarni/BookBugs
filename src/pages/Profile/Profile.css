@@ -26,7 +26,7 @@
 .userDetailsDiv {
     display: flex;
     flex-direction: column;
-    border: 1px solid skyblue;
+    border: 2px solid skyblue;
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
 }
 
@@ -109,6 +109,7 @@
 }
 
 .logoutBtn {
+    border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     background-color: transparent;
     font-size: 1rem;
@@ -160,7 +161,7 @@
     padding: 0.5rem 0.5rem;
     /* background-color: steelblue; */
     background-color: transparent;
-    border: 2px solid steelblue;
+    border: 2px solid skyblue;
     font-size: 0.8rem;
     font-weight: bold;
     border-radius: 20px;
@@ -176,7 +177,7 @@
 .addnewAddressBtn {
     padding: 0.5rem 0.5rem;
     background-color: transparent;
-    border: 2px solid steelblue;
+    border: 2px solid skyblue;
     font-size: 0.9rem;
     font-weight: bold;
     border-radius: 20px;

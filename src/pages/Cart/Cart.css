@@ -28,7 +28,7 @@
 
 .cartItem {
     width: 40rem;
-    border: 1px solid skyblue;
+    border: 2px solid skyblue;
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
     padding: 1rem 1rem 1rem 1rem;
     margin-right: 30rem;
@@ -46,6 +46,7 @@
 
 .increment,
 .decrement {
+    border: 2px solid skyblue;
     padding: 0.1rem 0.1rem;
     margin: 0.1rem 0 0.1rem 0;
     background-color: steelblue;
@@ -90,6 +91,7 @@
 }
 
 .cartItemActionBtn {
+    border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     margin: 0.5rem 0 0.5rem 0;
     background-color: steelblue;
@@ -112,7 +114,7 @@
     width: 25rem;
     height: 18rem;
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
-    border: 1px solid skyblue;
+    border: 2px solid skyblue;
     padding: 1rem 1rem 1rem 1rem;
 }
 
@@ -125,6 +127,7 @@
 }
 
 .couponBtn {
+    border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     margin: 0.5rem 0 0.5rem 0;
     background-color: steelblue;
