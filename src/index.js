@@ -10,13 +10,14 @@ import { WishListContext, WishListProvider } from "./contexts/WishListContext";
 import { ToastContext, ToastProvider } from "./contexts/ToastContext";
 
 import ScrollToTop from "./helpers/ScrollToTop";
+import { UserDetailsContext, UserDetailsProvider } from "./contexts/UserDetailsContext";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 // Call make Server
 makeServer();
-export { ProductsContext, CartContext, WishListContext, ToastContext }
+export { ProductsContext, CartContext, WishListContext, ToastContext, UserDetailsContext }
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -24,8 +25,10 @@ root.render(
         <CartProvider>
           <WishListProvider>
             <ToastProvider>
-              <ScrollToTop />
-              <App />
+              <UserDetailsProvider>
+                <ScrollToTop />
+                <App />
+              </UserDetailsProvider>
             </ToastProvider>
           </WishListProvider>
         </CartProvider>
