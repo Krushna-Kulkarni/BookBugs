@@ -3,12 +3,18 @@
 import moment from 'moment';
 import { NavigationBar } from "../../components/NavigationBar"
 import "./Profile.css"
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserDetailsContext } from '../../contexts/UserDetailsContext';
 
 
 
 export const Profile = () => {
 
+    const { addresses, currentAddress, currentUser } = useContext(UserDetailsContext)
+
+
+
+    // ///////////////////////////////////////////
     const loggedIn = true;
 
     const [shouldShowTab, setShouldShowTab] = useState("profile");
@@ -37,20 +43,29 @@ export const Profile = () => {
                             </div>
                         </div>
                         {shouldShowTab === "address" ? (<div className="userAddressDiv">
-                            <div className="addressDetails">
-                                <div className="addressDetailsRow">
-                                    <h3>Krushna Kulkarni </h3>
-                                    <p>Tirupati Colony, Pangri Road</p>
-                                    <p>Beed, Maharashtra</p>
-                                    <p>Pin : 431122</p>
-                                    <p>Phone : 9420101718</p>
-                                </div>
-                                <div className="addressActionBtns">
-                                    <button className="editAddressBtn"> <i class="fa fa-edit"></i> Edit</button>
-                                    <button className="deleteAddressBtn"><i class="fa fa-trash"></i> Delete</button>
-                                </div>
-                            </div>
-                            <div className="addNewAddressBtn">
+                            {
+                                addresses.map((item) => {
+                                    const { firstName, lastName, street, district, state, pinCode, phone } = item;
+                                    return (
+                                        <>
+                                            <div className="addressDetails">
+                                                <div className="addressDetailsRow">
+                                                    <h3>{firstName + " " + lastName} </h3>
+                                                    <p>{street}</p>
+                                                    <p>{district}, {state}</p>
+                                                    <p>Pin: {pinCode}</p>
+                                                    <p>Phone: {phone}</p>
+                                                </div>
+                                                <div className="addressActionBtns">
+                                                    <button className="editAddressBtn"> <i class="fa fa-edit"></i> Edit</button>
+                                                    <button className="deleteAddressBtn"><i class="fa fa-trash"></i> Delete</button>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )
+                                })
+                            }
+                            <div className="addNewAddressBtnDiv">
                                 <button className="addnewAddressBtn"><i class="fa fa-plus"></i> Add New Address</button>
                             </div>
                         </div>) :
@@ -58,13 +73,14 @@ export const Profile = () => {
                                 <div className="profileDetails">
                                     <div className="profileDetailsLeftColumn">
                                         <h3>Name: </h3>
-                                        <h3>Username: </h3>
+                                        <h3>Email: </h3>
                                         <h3>SignUp Date: </h3>
                                     </div>
                                     <div className="profileDetailsRightColumn">
-                                        <h3>Krushna Kulkarni</h3>
-                                        <h3>KrushnaKulkarni</h3>
-                                        <h3>{moment(Date.now()).format("MMM Do YY")}</h3>
+                                        <h3>{currentUser.firstName + " " + currentUser.lastName}</h3>
+                                        <h3>{currentUser.email}</h3>
+                                        {/* <h3>{moment(Date.now()).format("MMM Do YY")}</h3> */}
+                                        <h3>{moment(currentUser.createdAt).format("MMM Do YY")}</h3>
                                     </div>
                                 </div>
                                 <div className="profileActionBtns">
