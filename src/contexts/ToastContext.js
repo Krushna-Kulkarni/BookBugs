@@ -9,15 +9,15 @@ export const ToastProvider = ({ children }) => {
     const notify = (action) => {
         switch (action) {
             case "addToCart":
-                return toast.info("Item Added to cart!", { autoClose: 2000 })
+                return toast.info("Item Added to cart!", { position: "bottom-right", autoClose: 2000 })
             case "removeFromCart":
-                return toast.info("Item Removed From cart!", { autoClose: 2000 })
+                return toast.info("Item Removed From cart!", { position: "bottom-right", autoClose: 2000 })
             case "addToWishlist":
-                return toast.info("Item Added To Wishlist!", { autoClose: 2000 })
+                return toast.info("Item Added To Wishlist!", { position: "bottom-right", autoClose: 2000 })
             case "removeFromWishlist":
-                return toast.info("Item Removed From Wishlist!", { autoClose: 2000 })
+                return toast.info("Item Removed From Wishlist!", { position: "bottom-right", autoClose: 2000 })
             default:
-                return toast.error("something went wrong", { autoClose: 2000 })
+                return toast.error("something went wrong", { position: "bottom-right", autoClose: 2000 })
         }
     }
 
