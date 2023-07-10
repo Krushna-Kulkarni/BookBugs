@@ -116,6 +116,7 @@
     color: red;
     border-radius: 20px;
     width: 35%;
+    cursor: pointer;
 }
 
 .logoutBtn:hover {
@@ -166,6 +167,7 @@
     font-weight: bold;
     border-radius: 20px;
     width: 25%;
+    cursor: pointer;
 
 }
 
@@ -182,6 +184,7 @@
     font-weight: bold;
     border-radius: 20px;
     width: 35%;
+    cursor: pointer;
 }
 
 .addnewAddressBtn:hover,

@@ -1,6 +1,8 @@
 * {
     font-family: 'Quicksand', sans-serif;
-    background-color: black !important;
+
+    /* for dark mode */
+    /* background-color: black !important;
     background: black !important;
-    color: white !important;
+    color: white !important; */
 }
