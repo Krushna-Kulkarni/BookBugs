@@ -17,7 +17,7 @@ export const Home = () => {
                     <div className="HeroHeading">
                         <h1 className="homeHeading">This is BookBugs</h1>
                         <h3 className="homeSubHeading">Your online destination for captivating stories, inspiring knowledge, and endless literary adventures. Explore, discover, and indulge in the world of books with us.</h3>
-                        <button className="productsPageBtn"><NavLink to="/products" className="redirectToProductsPage"> Explore Available Books <i className="fa fa-arrow-right" aria-hidden="true"></i></NavLink></button>
+                        <NavLink to="/products" className="redirectToProductsPage"> <button className="productsPageBtn"> Explore Available Books <i className="fa fa-arrow-right" aria-hidden="true"></i></button></NavLink>
                     </div>
                 </div>
 

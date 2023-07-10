@@ -38,12 +38,12 @@ export const WishList = () => {
                                         </div>
                                         <div className="wishListItemActionBtns">
                                             {cart.find((product) => product._id === item._id) ?
-                                                <button className="wishListItemActionBtn"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Go to Cart </NavLink></button>
+                                                <button className="wishListItemActionBtn"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </NavLink></button>
                                                 :
                                                 <button onClick={() => { notify("addToCart"); addToCartHandler(item) }} className="wishListItemActionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                                             }
 
-                                            <button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="wishListItemActionBtn">Remove</button>
+                                            <button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="wishListItemActionBtn"><i class="fa fa-trash"></i> Remove</button>
                                         </div>
                                     </div>
                                 )

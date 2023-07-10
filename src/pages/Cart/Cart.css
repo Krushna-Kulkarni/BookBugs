@@ -99,6 +99,7 @@
     border-radius: 20px;
     width: 12rem;
     align-items: center;
+    cursor: pointer;
 }
 
 .cartItemActionBtn:hover {
@@ -134,6 +135,7 @@
     color: white;
     border-radius: 20px;
     width: 30%;
+    cursor: pointer;
 }
 
 

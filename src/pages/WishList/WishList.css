@@ -62,6 +62,7 @@
     border-radius: 20px;
     width: 10rem;
     align-items: center;
+    cursor: pointer;
 }
 
 .wishListItemActionBtn:hover {
