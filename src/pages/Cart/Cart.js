@@ -48,35 +48,37 @@ export const Cart = () => {
                         }
 
                     </div>
-                    <div className="cartItemsSummaryDiv">
-                        <div className="couponDiv">
-                            <p>Get 5% off ?</p>
-                            <button disabled={isCouponApplied} onClick={() => applyCouponHandler()} className="couponBtn">Apply Coupon</button>
-                        </div>
-                        <div className="ItemDetailsandPrice">
-                            <div className="ItemDetails">
-                                <p>Price : ({totalItems} items)</p>
-                                <p>Discount</p>
-                                <p>Delivery Charges</p>
-                                <p>Coupon Discount</p>
-                                <p><b>Total Amount</b></p>
+                    <div className="cartItemsSummaryDetailsDiv">
+                        <div className="cartItemsSummaryDiv">
+                            <div className="couponDiv">
+                                <p>Get 5% off ?</p>
+                                <button disabled={isCouponApplied} onClick={() => applyCouponHandler()} className="couponBtn">Apply Coupon</button>
                             </div>
-                            <div className="ItemPriceDetails">
-                                <p>₹{priceOfAllItems}</p>
-                                <p>₹{totalPriceDiscount}</p>
-                                <p>Free</p>
-                                <p>₹{couponDiscount}</p>
-                                <p><b>₹{totalPrice}</b></p>
+                            <div className="ItemDetailsandPrice">
+                                <div className="ItemDetails">
+                                    <p>Price : ({totalItems} items)</p>
+                                    <p>Discount</p>
+                                    <p>Delivery Charges</p>
+                                    <p>Coupon Discount</p>
+                                    <p><b>Total Amount</b></p>
+                                </div>
+                                <div className="ItemPriceDetails">
+                                    <p>₹{priceOfAllItems}</p>
+                                    <p>₹{totalPriceDiscount}</p>
+                                    <p>Free</p>
+                                    <p>₹{couponDiscount}</p>
+                                    <p><b>₹{totalPrice}</b></p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="checkoutDiv">
-                            <p className="discountPercentage">You will save ₹{totalPriceDiscount + couponDiscount} on this order</p>
-                            <button className="actionBtn">CheckOut</button>
+                            <div className="checkoutDiv">
+                                <p className="discountPercentage">You will save ₹{totalPriceDiscount + couponDiscount} on this order</p>
+                                <NavLink to="/checkout"><button className="checkoutActionBtn">CheckOut</button></NavLink>
+                            </div>
                         </div>
                     </div>
                 </div>)}
 
-            </div>
+            </div >
         </>
     )
 }
