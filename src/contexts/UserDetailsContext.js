@@ -24,7 +24,13 @@ export const UserDetailsProvider = ({ children }) => {
     }])
     const [currentAddress, setCurrentAddress] = useState(addresses[0])
 
-    return (<UserDetailsContext.Provider value={{ addresses, currentAddress, currentUser }}>
+
+
+    const currentAddressSelector = (item) => {
+        setCurrentAddress(item);
+    }
+
+    return (<UserDetailsContext.Provider value={{ addresses, currentAddress, currentUser, currentAddressSelector }}>
         {children}
     </UserDetailsContext.Provider>)
 }

@@ -6,6 +6,7 @@ import { Products } from "./pages/Products/Products";
 import { Product } from "./pages/Product/Product";
 import { Cart } from "./pages/Cart/Cart";
 import { WishList } from "./pages/WishList/WishList";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 import { ToastContainer } from 'react-toastify';
 import { Profile } from "./pages/Profile/Profile";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/products/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishList" element={<WishList />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/user" element={<Profile />} />
         <Route path="/*" element={<PageNotFound />} />
