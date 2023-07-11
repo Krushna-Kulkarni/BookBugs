@@ -5,12 +5,13 @@ import { NavigationBar } from "../../components/NavigationBar"
 import "./Profile.css"
 import { useContext, useState } from 'react';
 import { UserDetailsContext } from '../../contexts/UserDetailsContext';
+import { AddressForm } from '../../components/AddressForm/AddressForm';
 
 
 
 export const Profile = () => {
 
-    const { addresses, currentAddress, currentUser } = useContext(UserDetailsContext)
+    const { setIsAddressFormOpen, isAddressFormOpen, addresses, currentAddress, currentUser, updateAddressFormHandler, setFillData, emptyFormData, deleteAddressFormHandler } = useContext(UserDetailsContext)
 
 
 
@@ -45,28 +46,26 @@ export const Profile = () => {
                         {shouldShowTab === "address" ? (<div className="userAddressDiv">
                             {
                                 addresses.map((item) => {
-                                    const { firstName, lastName, street, district, state, pinCode, phone } = item;
+                                    const { id, firstName, lastName, street, district, state, pinCode, phone } = item;
                                     return (
-                                        <>
-                                            <div className="addressDetails">
-                                                <div className="addressDetailsRow">
-                                                    <h3>{firstName + " " + lastName} </h3>
-                                                    <p>{street}</p>
-                                                    <p>{district}, {state}</p>
-                                                    <p>Pin: {pinCode}</p>
-                                                    <p>Phone: {phone}</p>
-                                                </div>
-                                                <div className="addressActionBtns">
-                                                    <button className="editAddressBtn"> <i class="fa fa-edit"></i> Edit</button>
-                                                    <button className="deleteAddressBtn"><i class="fa fa-trash"></i> Delete</button>
-                                                </div>
+                                        <div key={id} className="addressDetails">
+                                            <div className="addressDetailsRow">
+                                                <h3>{firstName + " " + lastName} </h3>
+                                                <p>{street}</p>
+                                                <p>{district}, {state}</p>
+                                                <p>Pin: {pinCode}</p>
+                                                <p>Phone: {phone}</p>
                                             </div>
-                                        </>
+                                            <div className="addressActionBtns">
+                                                <button onClick={() => updateAddressFormHandler(item)} className="editAddressBtn"> <i className="fa fa-edit"></i> Edit</button>
+                                                <button onClick={() => deleteAddressFormHandler(id)} className="deleteAddressBtn"><i className="fa fa-trash"></i> Delete</button>
+                                            </div>
+                                        </div>
                                     )
                                 })
                             }
                             <div className="addNewAddressBtnDiv">
-                                <button className="addnewAddressBtn"><i class="fa fa-plus"></i> Add New Address</button>
+                                <button onClick={() => { setIsAddressFormOpen(true); setFillData(emptyFormData) }} className="addnewAddressBtn"><i className="fa fa-plus"></i> Add New Address</button>
                             </div>
                         </div>) :
                             (<div className="profileDiv">
@@ -89,6 +88,7 @@ export const Profile = () => {
                             </div>)}
                     </div>
                 </div>}
+                {isAddressFormOpen && <AddressForm />}
             </div>
         </>
     )
