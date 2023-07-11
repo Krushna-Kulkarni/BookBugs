@@ -43,7 +43,7 @@ export const WishList = () => {
                                                 <button onClick={() => { notify("addToCart"); addToCartHandler(item) }} className="wishListItemActionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                                             }
 
-                                            <button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="wishListItemActionBtn"><i class="fa fa-trash"></i> Remove</button>
+                                            <button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(item) }} className="wishListItemActionBtn"><i className="fa fa-trash"></i> Remove</button>
                                         </div>
                                     </div>
                                 )

@@ -4,12 +4,14 @@
 }
 
 .homeBox {
-    margin: 7rem auto auto auto;
+    margin: auto auto auto auto;
 }
 
 .heroImage {
 
     display: flex;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
     justify-content: center;
     margin: auto;
 }
@@ -20,7 +22,7 @@
 
 .HeroHeading {
     color: steelblue;
-    width: 50%;
+    max-width: 50%;
     /* height: 50%; */
     padding: 2rem 2rem;
     display: flex;
@@ -41,8 +43,8 @@
     background-color: steelblue;
     color: white;
     border-radius: 20px;
-    width: 20rem;
-    height: 3rem;
+    max-width: 20rem;
+    min-height: 3rem;
     align-items: center;
     font-size: 1.1rem;
 }

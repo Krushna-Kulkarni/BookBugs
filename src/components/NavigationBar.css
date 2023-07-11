@@ -3,7 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 6rem;
+    min-height: 6rem;
     width: 100%;
 
 
@@ -13,7 +13,7 @@
     backdrop-filter: blur(7.5px);
 
     color: steelblue;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 9999;
