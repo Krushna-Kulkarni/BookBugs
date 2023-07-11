@@ -13,11 +13,13 @@ export const Home = () => {
             <NavigationBar />
             <div className="homeBox">
                 <div className="heroImage">
-                    <img className="heroimg" src="https://www.theyellowsparrow.com/wp-content/uploads/2016/10/bk-1050x656.jpg" alt="hero" />
-                    <div className="HeroHeading">
-                        <h1 className="homeHeading">This is BookBugs</h1>
-                        <h3 className="homeSubHeading">Your online destination for captivating stories, inspiring knowledge, and endless literary adventures. Explore, discover, and indulge in the world of books with us.</h3>
-                        <NavLink to="/products" className="redirectToProductsPage"> <button className="productsPageBtn"> Explore Available Books <i className="fa fa-arrow-right" aria-hidden="true"></i></button></NavLink>
+                    {/* <img className="heroimg" src="https://www.theyellowsparrow.com/wp-content/uploads/2016/10/bk-1050x656.jpg" alt="hero" /> */}
+                    <div className="myHero">
+                        <div className="HeroHeading">
+                            <div className="homeHeading">This is BookBugs</div>
+                            <div className="homeSubHeading">Your online destination for captivating stories, inspiring knowledge, and endless literary adventures. Explore, discover, and indulge in the world of books with us.</div>
+                            <div className="heroBtn">    <NavLink to="/products" className="redirectToProductsPage"> <button className="productsPageBtn"> Explore Available Books <i className="fa fa-arrow-right" aria-hidden="true"></i></button></NavLink></div>
+                        </div>
                     </div>
                 </div>
 
