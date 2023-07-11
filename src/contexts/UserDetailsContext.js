@@ -5,7 +5,8 @@ import { users } from "../backend/db/users";
 export const UserDetailsContext = createContext();
 export const UserDetailsProvider = ({ children }) => {
 
-    const [currentUser, setCurrentUser] = useState(users[0])
+    // const [currentUser, setCurrentUser] = useState(users[0])
+    const currentUser = users[0]
 
 
     const [addresses, setAddresses] = useState([{
@@ -29,9 +30,6 @@ export const UserDetailsProvider = ({ children }) => {
     }])
     const [currentAddress, setCurrentAddress] = useState(addresses[0])
     const [isAddressFormOpen, setIsAddressFormOpen] = useState(false);
-
-
-    const [shouldAddDummy, setShouldAddDummy] = useState(false)
 
 
     const dummyData = {

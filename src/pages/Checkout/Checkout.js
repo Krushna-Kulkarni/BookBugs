@@ -1,15 +1,12 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
 import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Checkout.css"
-import { WishListContext } from "../../contexts/WishListContext";
 import { UserDetailsContext } from "../../contexts/UserDetailsContext"
 import { ToastContext } from "../../contexts/ToastContext";
 export const Checkout = () => {
-    const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, applyCouponHandler, isCouponApplied, removeFromCartCartHandler, productQuantityIncrement, productQuantityDecrement } = useContext(CartContext);
-    const { wishList, addToWishListHandler } = useContext(WishListContext);
-    const { addresses, currentAddress, currentUser, currentAddressSelector } = useContext(UserDetailsContext)
+    const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, } = useContext(CartContext);
+    const { addresses, currentAddress, currentAddressSelector } = useContext(UserDetailsContext)
     const { notify } = useContext(ToastContext);
 
     return (

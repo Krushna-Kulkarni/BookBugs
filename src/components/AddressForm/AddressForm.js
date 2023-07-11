@@ -1,10 +1,10 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import "./AddressForm.css"
 import { UserDetailsContext } from "../../contexts/UserDetailsContext"
 
 export const AddressForm = () => {
 
-    const { setIsAddressFormOpen, isAddressFormOpen, addresses, currentAddress, currentUser, formSubmitHandler, fillData, dummyData, updateAddressFormHandler } = useContext(UserDetailsContext)
+    const { setIsAddressFormOpen, formSubmitHandler, fillData, dummyData, updateAddressFormHandler } = useContext(UserDetailsContext)
 
 
     return (<div className="addressMain">

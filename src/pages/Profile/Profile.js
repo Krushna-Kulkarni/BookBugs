@@ -11,7 +11,7 @@ import { AddressForm } from '../../components/AddressForm/AddressForm';
 
 export const Profile = () => {
 
-    const { setIsAddressFormOpen, isAddressFormOpen, addresses, currentAddress, currentUser, updateAddressFormHandler, setFillData, emptyFormData, deleteAddressFormHandler } = useContext(UserDetailsContext)
+    const { setIsAddressFormOpen, isAddressFormOpen, addresses, currentUser, updateAddressFormHandler, setFillData, emptyFormData, deleteAddressFormHandler } = useContext(UserDetailsContext)
 
 
 
