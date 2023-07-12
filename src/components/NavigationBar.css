@@ -34,7 +34,8 @@
     border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     border-radius: 20px;
-    width: 22rem;
+    max-width: 22rem;
+    min-width: 15rem;
 }
 
 .searchbtn {

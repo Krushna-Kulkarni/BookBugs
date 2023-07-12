@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { users } from "../backend/db/users";
 
 export const UserDetailsContext = createContext();
@@ -28,7 +28,11 @@ export const UserDetailsProvider = ({ children }) => {
         pinCode: "431122",
         phone: "9420101718"
     }])
-    const [currentAddress, setCurrentAddress] = useState(addresses[0])
+    const [currentAddress, setCurrentAddress] = useState(null)
+
+    useEffect(() => { setCurrentAddress(addresses[0]) }, [addresses])
+
+
     const [isAddressFormOpen, setIsAddressFormOpen] = useState(false);
 
 
@@ -82,7 +86,8 @@ export const UserDetailsProvider = ({ children }) => {
         setFillData(item);
     }
     const deleteAddressFormHandler = (id) => {
-        setAddresses([...addresses].filter((addr) => addr.id !== id))
+        const newAddresses = addresses.filter((addr) => addr.id !== id)
+        setAddresses(newAddresses)
     }
 
     return (<UserDetailsContext.Provider value={{ isAddressFormOpen, setIsAddressFormOpen, addresses, currentAddress, currentUser, currentAddressSelector, formSubmitHandler, updateAddressFormHandler, deleteAddressFormHandler, fillData, setFillData, emptyFormData, dummyData }}>
