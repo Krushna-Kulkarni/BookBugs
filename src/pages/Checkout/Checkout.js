@@ -4,17 +4,17 @@ import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Checkout.css"
 import { UserDetailsContext } from "../../contexts/UserDetailsContext"
-import { ToastContext } from "../../contexts/ToastContext";
+// import { ToastContext } from "../../contexts/ToastContext";
 export const Checkout = () => {
     const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, } = useContext(CartContext);
     const { addresses, currentAddress, currentAddressSelector } = useContext(UserDetailsContext)
-    const { notify } = useContext(ToastContext);
+    // const { notify } = useContext(ToastContext);
 
 
     const navigate = useNavigate();
     useEffect(() => {
-        cart.length === 0 && navigate("/products");
-    }, []);
+        cart?.length === 0 && navigate("/products");
+    });
 
     return (
         <>
