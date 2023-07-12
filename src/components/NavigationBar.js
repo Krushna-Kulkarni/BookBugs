@@ -17,7 +17,7 @@ export const NavigationBar = () => {
         <>
             <div className="navigationDiv">
                 <div className="logoDiv">
-                    <img src={require('../BBLogo.png')} width="40px" height="40px" alt="BBlogo" />
+                    <img src={require('../BBLogo2.png')} width="40px" height="40px" alt="BBlogo" />
                     <NavLink to="/"><h1>BookBugs</h1></NavLink>
                 </div>
                 <div className="searchBarDiv">
