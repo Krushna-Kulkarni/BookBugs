@@ -12,9 +12,16 @@ import { ToastContainer } from 'react-toastify';
 import { Profile } from "./pages/Profile/Profile";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import { Home } from "./pages/Home/Home";
+import { useEffect } from "react";
 
 
 function App() {
+
+  useEffect(() => {
+    document.body.style.zoom = "90%";
+  }, []);
+
+
   return (
     <div className="App">
 
