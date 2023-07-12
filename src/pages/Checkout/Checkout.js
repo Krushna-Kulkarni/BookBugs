@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Checkout.css"
@@ -8,6 +9,12 @@ export const Checkout = () => {
     const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, } = useContext(CartContext);
     const { addresses, currentAddress, currentAddressSelector } = useContext(UserDetailsContext)
     const { notify } = useContext(ToastContext);
+
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        cart.length === 0 && navigate("/products");
+    }, []);
 
     return (
         <>
@@ -36,7 +43,7 @@ export const Checkout = () => {
                                 {
                                     cart.map((item) => {
                                         return (
-                                            <div className="itemQuantityBody">
+                                            <div key={item?.id} className="itemQuantityBody">
                                                 <div className="item">{item.name}</div>
                                                 <div className="quantity">{item.quantity}</div>
                                             </div>
@@ -68,13 +75,13 @@ export const Checkout = () => {
                             <div>
                                 <hr />
                             </div>
-                            <div className="checkoutAddressDetailsDiv">
+                            <div style={{ display: !(currentAddress === undefined) ? 'block' : 'none' }} className="checkoutAddressDetailsDiv">
                                 <p><b>Deliver To:</b> </p>
-                                <p>{currentAddress.firstName + " " + currentAddress.lastName} </p>
-                                <p>{currentAddress.street}</p>
-                                <p>{currentAddress.district}, {currentAddress.state}</p>
-                                <p>Pin: {currentAddress.pinCode}</p>
-                                <p>Phone: {currentAddress.phone}</p>
+                                <p>{currentAddress?.firstName + " " + currentAddress?.lastName} </p>
+                                <p>{currentAddress?.street}</p>
+                                <p>{currentAddress?.district}, {currentAddress?.state}</p>
+                                <p>Pin: {currentAddress?.pinCode}</p>
+                                <p>Phone: {currentAddress?.phone}</p>
                             </div>
                             <div className="placeOrderDiv">
                                 <button className="placeOrderActionBtn">Place Order</button>
@@ -86,7 +93,7 @@ export const Checkout = () => {
                             <h3>Select Address: </h3>
                             {
                                 addresses.map((item) => {
-                                    const { firstName,
+                                    const { id, firstName,
                                         lastName,
                                         street,
                                         district,
@@ -94,9 +101,9 @@ export const Checkout = () => {
                                         pinCode,
                                         phone } = item;
                                     return (
-                                        <div className="checkoutAddressDetailsDiv">
+                                        <div key={id} className="checkoutAddressDetailsDiv">
                                             <label className="radioOption">
-                                                <input onChange={() => currentAddressSelector(item)} className="radioInput" type="radio" name="radio" value={item} />
+                                                <input onChange={() => currentAddressSelector(item)} className="radioInput" type="radio" name="radio" value={item} checked={currentAddress?.id === item?.id} />
                                                 <div className="radioInputData">
                                                     <p>{firstName + " " + lastName} </p>
                                                     <p>{street}</p>
