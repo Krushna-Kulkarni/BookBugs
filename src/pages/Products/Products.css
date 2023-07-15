@@ -202,6 +202,7 @@ p {
 }
 
 .addToCart {
+    font-size: 1rem;
     border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     background-color: steelblue;
@@ -245,30 +246,42 @@ p {
     }
 
     .productDiv {
-        width: 12rem;
-        height: 18rem;
+        justify-content: space-between;
+        width: 17rem;
+        height: 28rem;
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
         margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
 
     .bookImg {
-        width: 8rem;
-        height: 12rem;
+        width: 12rem;
+        height: 18rem;
         /* width: 200px;
         height: 300px; */
     }
 
     p {
-        font-size: 0.8rem;
+        /* font-size: 0.8rem; */
     }
 
     .addToCart {
-        padding: 0.2rem 0.2rem;
+        font-size: 1rem;
+        /* padding: 0.2rem 0.2rem; */
     }
 
 
     .addToCartBtn {
         margin: 0.2rem 0.2rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-rating p {
+
+        font-size: 1.4rem;
+
     }
 
 }

@@ -25,7 +25,7 @@ export const NavigationBar = () => {
                     <NavLink to="/products"><button onClick={searchClickHandler} className="searchbtn"><i className="fa fa-search"></i></button></NavLink>
                 </div>
                 <div className="profileDetailsDiv">
-                    <p className="navIcon"><i className="fa fa-sign-out" aria-hidden="true"></i></p>
+                    <p className="navIcon"><NavLink to="/products"><i className="fa fa-compass" aria-hidden="true"></i></NavLink></p>
                     <p className="navIcon"><NavLink to="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i>({cart.length})</NavLink></p>
                     <p className="navIcon"><NavLink to="/wishList"><i className="fa fa-heart" aria-hidden="true"></i>({wishList.length})</NavLink></p>
                     <p className="navIcon"><NavLink to="/user"><i className="fa fa-user-circle-o"></i></NavLink></p>

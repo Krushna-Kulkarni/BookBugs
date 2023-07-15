@@ -1,4 +1,4 @@
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, useNavigate } from "react-router-dom";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { useContext } from "react";
 import "./Product.css"
@@ -16,16 +16,18 @@ export const Product = () => {
     const { productId } = useParams();
     const currentProduct = productsData.find(({ _id }) => productId === _id)
 
+    const navigate = useNavigate();
+    !currentProduct && navigate("/products")
     return (
         <><div className="productMain">
             <NavigationBar />
             <h1 className="heading">Book Details</h1>
-            <div classkey={currentProduct?._id} className="product-Div">
-                <div className="img-Div"><img src={`${currentProduct?.img}`} alt="book" width="250px" height="370px" /></div>
+            <div className="productContentDiv"><div classkey={currentProduct?._id} className="product-Div">
+                <div className="img-Div"><img className="productImg" src={`${currentProduct?.img}`} alt="book" width="250px" height="370px" /></div>
                 <div className="bookDetailsDiv">
                     <div className="titleDiv">
-                        <h2>{currentProduct?.name}</h2>
-                        <h3>₹{currentProduct?.price}</h3>
+                        <p className="productName">{currentProduct?.name}</p>
+                        <p className="productAuthor">₹{currentProduct?.price}</p>
                     </div>
                     <div className="genericProductDetails">
                         <p><i className="fa fa-tag" aria-hidden="true"></i> Fastest Delivery</p>
@@ -48,7 +50,7 @@ export const Product = () => {
                         {wishList.find((product) => product._id === currentProduct._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn"><i className="fa fa-heart" aria-hidden="true"></i> Move to WishList</button>)}
                     </div>
                 </div>
-            </div>
+            </div></div>
         </div>
         </>
     )

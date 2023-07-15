@@ -13,7 +13,6 @@ export const Home = () => {
             <NavigationBar />
             <div className="homeBox">
                 <div className="heroImage">
-                    {/* <img className="heroimg" src="https://www.theyellowsparrow.com/wp-content/uploads/2016/10/bk-1050x656.jpg" alt="hero" /> */}
                     <div className="myHero">
                         <div className="HeroHeading">
                             <div className="homeHeading">This is BookBugs</div>

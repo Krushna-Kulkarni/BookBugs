@@ -22,12 +22,14 @@
 
 .logoDiv {
     display: flex;
-    align-items: center
+    align-items: center;
+    padding: 0.5rem 0.5rem;
 }
 
 .searchBarDiv {
     display: flex;
-    align-items: center
+    align-items: center;
+    padding: 0.5rem 0.5rem;
 }
 
 .searchbar {
@@ -59,7 +61,10 @@
     background-color: gainsboro;
 
 } */
+.profileDetailsDiv {
+    padding: 0.5rem 0.5rem;
+}
 
 .navIcon {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
