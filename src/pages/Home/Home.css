@@ -8,6 +8,9 @@
 }
 
 .heroImage {
+    /* box-sizing: border-box; */
+    /* width: inherit; */
+    /* width: 100%; */
     display: flex;
     /* flex-direction: column;
     flex-wrap: wrap; */
@@ -172,6 +175,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .categoryVector {
+        padding: 0.5rem 0.5rem;
+        margin: 1.8rem 1rem 1.8rem 1rem;
+    }
+
     .heroImage {
         margin-top: 0;
     }
