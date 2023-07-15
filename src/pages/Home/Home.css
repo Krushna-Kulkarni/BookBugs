@@ -37,7 +37,7 @@
     color: white;
     width: inherit;
     /* height: 50%; */
-    padding: 1.5rem 2rem 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
 
     display: flex;
     flex-direction: column;
@@ -158,7 +158,7 @@
     /* justify-content: space-between; */
     justify-content: center;
     align-items: center;
-    /* margin-left: 1rem; */
+    margin-left: 1rem;
 
 }
 
