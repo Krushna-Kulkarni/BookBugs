@@ -13,6 +13,7 @@ import { Profile } from "./pages/Profile/Profile";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import { Home } from "./pages/Home/Home";
 import { useEffect } from "react";
+import Login from "./pages/Login/Login";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/user" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <ToastContainer />
