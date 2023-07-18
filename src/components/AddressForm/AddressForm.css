@@ -36,6 +36,10 @@
     flex-direction: column;
 }
 
+.input:focus{
+    outline-color: steelblue;
+}
+
 .inputFieldsDiv {
     display: flex;
     flex-direction: column;
