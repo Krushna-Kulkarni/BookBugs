@@ -84,8 +84,8 @@ export const Products
                                                 <div className="card-price">
                                                     <p><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </p>
                                                 </div>
-                                                {cart.find((item) => item._id === product._id) ? <div className="addToCartBtn">
-                                                    <NavLink to="/cart"><button className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </button></NavLink>
+                                                {cart.find((item) => item._id === product._id) ? <div className="addToCartBtn" >
+                                                    <NavLink to="/cart"><button className="goToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </button></NavLink>
                                                 </div> : <div className="addToCartBtn">
                                                     <button onClick={() => { notify("addToCart"); addToCartHandler(product) }} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                                                 </div>}
