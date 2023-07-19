@@ -14,6 +14,8 @@ import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import { Home } from "./pages/Home/Home";
 import { useEffect } from "react";
 import Login from "./pages/Login/Login";
+import SignUp from "./pages/SignUp/SignUp";
+import { ProtectedRoute } from "./helpers/ProtectedRoute";
 
 
 function App() {
@@ -30,12 +32,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishList" element={<WishList />} />
+        <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+        <Route path="/wishList" element={<ProtectedRoute><WishList /></ProtectedRoute>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
         <Route path="/user" element={<Profile />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signUp" element={<SignUp />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <ToastContainer />
