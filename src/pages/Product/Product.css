@@ -91,15 +91,15 @@ b {
 }
 
 
-/* @media screen and (min-width: 350px) {
+/* @media only  screen and (min-width: 350px) {
     .product-div {
         width: 10rem;
         height: 5rem;
     }
 } */
-/* @media screen and (max-width: 480px) {} */
+/* @media only screen and (max-width: 480px) {} */
 
-@media screen and (max-width: 490px) {
+@media only screen and (max-width: 490px) {
     .productContentDiv {
         display: flex;
         justify-content: center;

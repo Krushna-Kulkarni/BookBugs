@@ -123,7 +123,7 @@
 
 
 
-@media screen and (max-width: 490px){
+@media only screen and (max-width: 490px){
     .checkoutAddressDiv,.checkoutItemsSummaryDiv{
     width:23rem;
 }

@@ -240,7 +240,7 @@ p {
 }
 
 
-@media screen and (max-width: 950px) {
+@media only screen and (max-width: 950px) {
 
 /*  */
 
@@ -343,7 +343,7 @@ p {
 
 
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .showingResultsDiv{
         margin: auto auto;
     }
