@@ -16,6 +16,14 @@ export const ToastProvider = ({ children }) => {
                 return toast.info("Item Added To Wishlist!", { position: "bottom-right", autoClose: 2000 })
             case "removeFromWishlist":
                 return toast.info("Item Removed From Wishlist!", { position: "bottom-right", autoClose: 2000 })
+            case "emailPasswordIncorrect":
+                return toast.error("Email or Password is incorrect!", { position: "bottom-right", autoClose: 2000 })
+            case "userLoggedIn":
+                return toast.success("Logged In Successfully!", { position: "bottom-right", autoClose: 2000 })
+            case "userLoggedOut":
+                return toast.info("Logged Out Successfully!", { position: "bottom-right", autoClose: 2000 })
+            case "pleaseLogin":
+                return toast.info("Please Login To Continue!", { position: "bottom-right", autoClose: 2000 })
             default:
                 return toast.error("something went wrong", { position: "bottom-right", autoClose: 2000 })
         }
