@@ -1,11 +1,12 @@
 .loginMain{
     /* width: 100vw; */
-    height: 90vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin: 0 2rem 0 0;
 
 }
 .loginDiv{
@@ -60,8 +61,8 @@ input:focus{
 
 
 
-.eyeIconInvisible,
-.eyeIconVisible{
+.eyeInvisible,
+.eyeVisible{
     position: absolute;
     font-size: 1.2rem;
     bottom: 20%;

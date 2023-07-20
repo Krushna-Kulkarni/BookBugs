@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
 
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0)
 
-    return (<CartContext.Provider value={{ cart, totalItems, addToCartHandler, productQuantityIncrement, productQuantityDecrement, removeFromCartCartHandler, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, isCouponApplied, applyCouponHandler }}>
+    return (<CartContext.Provider value={{ cart, totalItems, addToCartHandler, productQuantityIncrement, productQuantityDecrement, removeFromCartCartHandler, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, isCouponApplied, applyCouponHandler ,setCart}}>
         {children}
     </CartContext.Provider>)
 }

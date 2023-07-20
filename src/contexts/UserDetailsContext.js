@@ -1,36 +1,15 @@
 import { v4 as uuid } from "uuid";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { users } from "../backend/db/users";
 
 export const UserDetailsContext = createContext();
 export const UserDetailsProvider = ({ children }) => {
+    const allUsers = users;
+    const [currentUser, setCurrentUser] = useState(allUsers[0]);
+    const [addresses, setAddresses] = useState(currentUser?.addresses);
+    const [currentAddress, setCurrentAddress] = useState(currentUser?.addresses[0]);
 
-    // const [currentUser, setCurrentUser] = useState(users[0])
-    const currentUser = users[0]
 
-
-    const [addresses, setAddresses] = useState([{
-        id: uuid(),
-        firstName: "Krushna",
-        lastName: "Kulkarni",
-        street: "Ganesh Nagar, Paud Road",
-        district: "Pune",
-        state: "Maharashtra",
-        pinCode: "411057",
-        phone: "1256394870"
-    }, {
-        id: uuid(),
-        firstName: "Adarsh",
-        lastName: "Balika",
-        street: "Tirupati Colony, Pangri Road",
-        district: "Beed",
-        state: "Maharashtra",
-        pinCode: "431122",
-        phone: "9420101718"
-    }])
-    const [currentAddress, setCurrentAddress] = useState(null)
-
-    useEffect(() => { setCurrentAddress(addresses[0]) }, [addresses])
 
 
     const [isAddressFormOpen, setIsAddressFormOpen] = useState(false);
@@ -90,7 +69,7 @@ export const UserDetailsProvider = ({ children }) => {
         setAddresses(newAddresses)
     }
 
-    return (<UserDetailsContext.Provider value={{ isAddressFormOpen, setIsAddressFormOpen, addresses, currentAddress, currentUser, currentAddressSelector, formSubmitHandler, updateAddressFormHandler, deleteAddressFormHandler, fillData, setFillData, emptyFormData, dummyData }}>
+    return (<UserDetailsContext.Provider value={{ isAddressFormOpen, setIsAddressFormOpen, addresses, currentAddress, currentUser, currentAddressSelector, formSubmitHandler, updateAddressFormHandler, deleteAddressFormHandler, fillData, setFillData, emptyFormData, dummyData,allUsers,setCurrentUser,setAddresses }}>
         {children}
     </UserDetailsContext.Provider>)
 }

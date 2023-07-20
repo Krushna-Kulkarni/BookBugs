@@ -6,18 +6,19 @@ import "./Profile.css"
 import { useContext, useState } from 'react';
 import { UserDetailsContext } from '../../contexts/UserDetailsContext';
 import { AddressForm } from '../../components/AddressForm/AddressForm';
+import { AuthContext } from '../../contexts/AuthContext';
+import { NavLink } from 'react-router-dom';
+import { ToastContext } from '../../contexts/ToastContext';
+import { CartContext } from '../../contexts/CartContext';
 
 
 
 export const Profile = () => {
 
     const { setIsAddressFormOpen, isAddressFormOpen, addresses, currentUser, updateAddressFormHandler, setFillData, emptyFormData, deleteAddressFormHandler } = useContext(UserDetailsContext)
-
-
-
-    // ///////////////////////////////////////////
-    const loggedIn = true;
-
+    const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
+    const {setCart} = useContext(CartContext)
+    const {notify} = useContext(ToastContext)
     const [shouldShowTab, setShouldShowTab] = useState("profile");
 
     const toogleTab = (tab) => {
@@ -33,7 +34,10 @@ export const Profile = () => {
                 <div className="profileHeading">
                     <h2>My Account</h2>
                 </div>
-                {!loggedIn ? <div className="userNotLoggedIn">User Not Logged In. Please Log In or Sign Up</div> : <div className="userLoggedIn">
+                {!isLoggedIn ? <div className="userNotLoggedIn">
+                   <h3> User Not Logged In. Please 
+                    <NavLink className="newUserLoginLink" to="/login"> Login</NavLink></h3>
+                </div> : <div className="userLoggedIn">
                     <div className="userDetailsDiv">
                         <div className="userDetailsHeaderBtnsDiv">
                             <div onClick={() => toogleTab("profile")} className={shouldShowTab === "profile" ? "headerBtn-active" : "headerBtn"}>
@@ -83,7 +87,8 @@ export const Profile = () => {
                                     </div>
                                 </div>
                                 <div className="profileActionBtns">
-                                    <button className="logoutBtn"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+                                    <button onClick={()=>{notify("userLoggedOut");     setIsLoggedIn(false);
+      setCart([]);}} className="logoutBtn"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
                                 </div>
                             </div>)}
                     </div>
