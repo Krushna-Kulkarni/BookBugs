@@ -10,18 +10,6 @@ a {
 
 
 
-.profileDetailsDiv {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-evenly;
-    align-items: center
-}
-
-.profileDetailsDiv>p {
-    margin: 0.2rem 0.2rem;
-    padding: 0.2rem 0.2rem;
-}
 
 .contentAndFilterDiv {
     position: relative;
@@ -33,6 +21,7 @@ a {
 
 
 .filterDiv {
+    font-size: 1.2rem;
     width: 15rem;
     height: 100%;
     display: flex;
@@ -98,20 +87,21 @@ a {
 .showingResultsDiv{
     display: flex;
     flex-direction: column;
+    margin-left: 18rem;
 }
 
 .showingResultsHeader{
     width: 100%;
     min-height: 3rem;
     padding: 1rem 1rem 1rem 1rem;
-    margin-left: 18rem;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .showingResultsHeader p{
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
 }
 .filterIcon{
@@ -124,7 +114,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: 18rem;
+    
     gap: 1rem 2rem;
 }
 
@@ -327,6 +317,10 @@ p {
 
     /* ------------------------------------------------------- */
 
+    .showingResultsDiv{
+        margin: auto auto;
+    }
+
     .filterDiv {
         display: none;
     }
@@ -344,14 +338,15 @@ p {
 
     .productsDiv {
         margin: auto auto;
-        /* padding: 1rem 2rem 1rem 0rem; */
-        /* justify-content: space-between; */
     }
 }
 
 
 
 @media screen and (max-width: 768px) {
+    .showingResultsDiv{
+        margin: auto auto;
+    }
     .showingResultsHeader p{
         font-size: 1.6rem;
         font-weight: bold;
@@ -365,8 +360,6 @@ p {
 
     .productsDiv {
         margin: auto auto;
-        /* padding: 1rem 2rem 1rem 0rem; */
-        /* justify-content: space-between; */
     }
 
     .productDiv {
