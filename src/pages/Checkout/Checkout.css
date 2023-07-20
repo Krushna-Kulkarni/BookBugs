@@ -11,8 +11,7 @@
 
 .checkoutAddressDiv {
     margin: auto;
-    min-width: 22rem;
-    max-width: 40rem;
+    width:30rem;
     border: 2px solid skyblue;
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
     padding: 1rem 1rem 1rem 1rem;
@@ -67,8 +66,7 @@
 }
 
 .checkoutItemsSummaryDiv {
-    min-width: 28rem;
-    max-width: 35rem;
+    width:30rem;
     /* height: 18rem; */
     box-shadow: rgba(90, 90, 90, 0.35) 0px 5px 15px;
     border: 2px solid skyblue;
@@ -111,6 +109,7 @@
 
 
 .placeOrderActionBtn {
+    font-size: 1rem;
     border: 2px solid skyblue;
     padding: 0.5rem 0.5rem;
     margin: 0.5rem 0 0.5rem 0;
@@ -120,3 +119,14 @@
     width: 100%;
     cursor: pointer;
 }
+
+
+
+
+@media screen and (max-width: 490px){
+    .checkoutAddressDiv,.checkoutItemsSummaryDiv{
+    width:23rem;
+}
+}
+
+

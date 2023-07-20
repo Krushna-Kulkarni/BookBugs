@@ -1,19 +1,22 @@
 import { useContext } from "react"
 import { ProductsContext } from "../../contexts/ProductsContext"
 import "./Products.css"
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import { WishListContext } from "../../contexts/WishListContext"
 import { ToastContext } from "../../contexts/ToastContext"
+import { AuthContext } from "../../contexts/AuthContext"
 
-export const Products
-    = () => {
+export const Products = () => {
         const { myFilters, sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
         const { cart, addToCartHandler } = useContext(CartContext)
         const { wishList, addToWishListHandler } = useContext(WishListContext);
+        const {isLoggedIn} = useContext(AuthContext)
         const { notify } = useContext(ToastContext)
 
+        const location = useLocation();
+        const navigate = useNavigate();
         const {
             priceFilter,
             categoryFilter,
@@ -59,7 +62,12 @@ export const Products
                                 <label><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "hToL"} type="radio" name="radio1" value="hToL" />Price - High To Low</label>
                             </div>
                         </div>
-                        <div className="productsDiv">
+                        <div className="showingResultsDiv">
+                            <div className="showingResultsHeader">
+                                <p>Showing All Products ({sortFiltered.length})</p>
+                                <p className="filterIcon"><i className="fa fa-filter" aria-hidden="true"></i></p>
+                            </div>
+                            <div className="productsDiv">
                             {
                                 sortFiltered.map((product) => {
                                     const { _id, name, img, author, price, originalPrice, rating } = product;
@@ -87,7 +95,7 @@ export const Products
                                                 {cart.find((item) => item._id === product._id) ? <div className="addToCartBtn" >
                                                     <NavLink to="/cart"><button className="goToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </button></NavLink>
                                                 </div> : <div className="addToCartBtn">
-                                                    <button onClick={() => { notify("addToCart"); addToCartHandler(product) }} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
+                                                    <button onClick={isLoggedIn ? () => { notify("addToCart"); addToCartHandler(product) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                                                 </div>}
 
 
@@ -97,6 +105,7 @@ export const Products
                                 })
                             }
 
+                        </div>
                         </div>
                     </div>
                 </div >
