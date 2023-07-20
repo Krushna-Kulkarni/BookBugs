@@ -9,7 +9,7 @@ export const AuthProvider = ({children}) => {
   const { notify } = useContext(ToastContext);
 
   const {allUsers, setCurrentUser,setAddresses} = useContext(UserDetailsContext);
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   const emptyLoginFormData = {
       email:"",
