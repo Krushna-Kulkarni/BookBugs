@@ -1,5 +1,5 @@
 .profileBox {
-  
+  position: relative;
   /* height: 70vh; */
     display: flex;
     flex-direction: column;
