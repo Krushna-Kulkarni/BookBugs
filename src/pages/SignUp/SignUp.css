@@ -1,17 +1,17 @@
 .signUpMain{
     /* width: 100vw; */
-    height: 90vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
+    margin: 0 2rem 0 0;
 }
 .signUpDiv{
     border: 2px solid skyblue;
     width:23rem;
-    height: 28rem;
+    height: 24rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,21 +63,15 @@ input:focus{
 
 
 
-.eyeIconInvisible0,
-.eyeIconVisible0{
+.eyeIconInvisible,
+.eyeIconVisible{
     position: absolute;
     font-size: 1.2rem;
-    bottom: 27%;
+    bottom: 10%;
     right: 8%;
 }
 
-.eyeIconInvisible1,
-.eyeIconVisible1{
-    position: absolute;
-    font-size: 1.2rem;
-    bottom: 8%;
-    right: 8%;
-}
+
 
 .signUpActionBtns{
     display: flex;
