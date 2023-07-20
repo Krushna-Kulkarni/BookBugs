@@ -11,13 +11,14 @@ import { ToastContext, ToastProvider } from "./contexts/ToastContext";
 
 import ScrollToTop from "./helpers/ScrollToTop";
 import { UserDetailsContext, UserDetailsProvider } from "./contexts/UserDetailsContext";
+import { AuthContext, AuthProvider } from "./contexts/AuthContext";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 // Call make Server
 makeServer();
-export { ProductsContext, CartContext, WishListContext, ToastContext, UserDetailsContext }
+export { ProductsContext, CartContext, WishListContext, ToastContext, UserDetailsContext, AuthContext }
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -27,7 +28,9 @@ root.render(
             <ToastProvider>
               <UserDetailsProvider>
                 <ScrollToTop />
-                <App />
+                <AuthProvider>
+                   <App />
+                </AuthProvider>
               </UserDetailsProvider>
             </ToastProvider>
           </WishListProvider>
