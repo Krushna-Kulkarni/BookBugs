@@ -36,7 +36,7 @@ function App() {
         <Route path="/wishList" element={<ProtectedRoute><WishList /></ProtectedRoute>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/mockman" element={<Mockman />} />
-        <Route path="/user" element={<Profile />} />
+        <Route path="/user" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/*" element={<PageNotFound />} />
