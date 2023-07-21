@@ -4,15 +4,13 @@ import { users } from "../backend/db/users";
 
 export const UserDetailsContext = createContext();
 export const UserDetailsProvider = ({ children }) => {
-    const allUsers = users;
+    const[allUsers,setAllUsers] = useState(users);
+    // const usersValue = {all}
     const [currentUser, setCurrentUser] = useState(allUsers[0]);
     const [addresses, setAddresses] = useState(currentUser?.addresses);
     const [currentAddress, setCurrentAddress] = useState(currentUser?.addresses[0]);
-
-
-
-
     const [isAddressFormOpen, setIsAddressFormOpen] = useState(false);
+
 
 
     const dummyData = {
@@ -69,7 +67,12 @@ export const UserDetailsProvider = ({ children }) => {
         setAddresses(newAddresses)
     }
 
-    return (<UserDetailsContext.Provider value={{ isAddressFormOpen, setIsAddressFormOpen, addresses, currentAddress, currentUser, currentAddressSelector, formSubmitHandler, updateAddressFormHandler, deleteAddressFormHandler, fillData, setFillData, emptyFormData, dummyData,allUsers,setCurrentUser,setAddresses }}>
+
+
+
+
+
+    return (<UserDetailsContext.Provider value={{ isAddressFormOpen, setIsAddressFormOpen, addresses, currentAddress, currentUser, currentAddressSelector, formSubmitHandler, updateAddressFormHandler, deleteAddressFormHandler, fillData, setFillData, emptyFormData, dummyData,allUsers,setCurrentUser,setAddresses,setAllUsers,setCurrentAddress,}}>
         {children}
     </UserDetailsContext.Provider>)
 }

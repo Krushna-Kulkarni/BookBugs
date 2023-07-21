@@ -2,14 +2,16 @@ import { createContext, useContext, useState } from "react"
 import { UserDetailsContext } from "./UserDetailsContext";
 import { ToastContext } from "./ToastContext";
 import { useLocation, useNavigate } from "react-router";
-
+import { formatDate } from "../backend/utils/authUtils";
+import { v4 as uuid } from "uuid";
 
 export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const { notify } = useContext(ToastContext);
 
-  const {allUsers, setCurrentUser,setAddresses} = useContext(UserDetailsContext);
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const {allUsers, setCurrentUser,setAddresses,setAllUsers,setCurrentAddress} = useContext(UserDetailsContext);
+
 
   const emptyLoginFormData = {
       email:"",
@@ -47,7 +49,7 @@ export const AuthProvider = ({children}) => {
     setAddresses(userDetailsExists?.addresses);
     notify("userLoggedIn");
     setFillLoginData(emptyLoginFormData);
-    navigate(location?.state?.from?.pathname);
+    location?.state?.from ? navigate(location?.state?.from?.pathname) : navigate("/")
     }
     else{ 
       notify("emailPasswordIncorrect")
@@ -55,17 +57,48 @@ export const AuthProvider = ({children}) => {
   }
 
 
+  
+  const signUpFormSubmitHandler = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const getNewUserDetails = Object.fromEntries(formData.entries());
+    const newUser = { ...getNewUserDetails, _id: uuid(), createdAt: formatDate(),updatedAt: formatDate(), addresses:[]};
+
+
+    setAllUsers([...allUsers, newUser])
+    setIsLoggedIn(true);
+    setCurrentUser(newUser);
+    setAddresses(newUser?.addresses);
+    setCurrentAddress(undefined);
+    notify("userLoggedIn");
+  
+    location?.state?.from ? navigate(location?.state?.from?.pathname) : navigate("/")
+  
+  }
+
+
+
+
+
+
 
 const fillLoginDataHandler = (data) => {
   setFillLoginData(data)
 }
+
+
+
+
+
+
 
   
 
 
    
   return (
-    <AuthContext.Provider value={{isLoggedIn, setIsLoggedIn,loginSubmitHandler,userDetailsExists,fillLoginData, fillLoginDataHandler,dummyLoginData}}>
+    <AuthContext.Provider value={{isLoggedIn, setIsLoggedIn,loginSubmitHandler,userDetailsExists,fillLoginData, fillLoginDataHandler,dummyLoginData,signUpFormSubmitHandler}}>
         {children}
     </AuthContext.Provider>
   )

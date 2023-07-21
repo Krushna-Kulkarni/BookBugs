@@ -14,7 +14,7 @@ export const WishListProvider = ({ children }) => {
 
 
 
-    return (<WishListContext.Provider value={{ wishList, addToWishListHandler }}>
+    return (<WishListContext.Provider value={{ wishList,setWishList, addToWishListHandler }}>
         {children}
     </WishListContext.Provider>)
 }

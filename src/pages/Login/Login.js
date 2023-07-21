@@ -1,15 +1,23 @@
-import { NavLink} from "react-router-dom"
+import { NavLink, useNavigate} from "react-router-dom"
 import {NavigationBar} from "../../components/NavigationBar"
 import "./Login.css"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/AuthContext"
 
 
 
+
+
 export default function Login() {
-    const {loginSubmitHandler,fillLoginData,fillLoginDataHandler,dummyLoginData} = useContext(AuthContext)
+    const {loginSubmitHandler,fillLoginData,fillLoginDataHandler,dummyLoginData,isLoggedIn} = useContext(AuthContext)
     const [shouldShowPassword, setShouldShowPassword] = useState(false)
 
+    const navigate=useNavigate();
+    useEffect(()=>{
+        isLoggedIn && navigate("/")
+    })
+
+   
   return ( <>
     <NavigationBar/>
     <div className="loginMain">

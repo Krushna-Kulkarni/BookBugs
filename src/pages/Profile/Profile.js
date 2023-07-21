@@ -7,9 +7,10 @@ import { useContext, useState } from 'react';
 import { UserDetailsContext } from '../../contexts/UserDetailsContext';
 import { AddressForm } from '../../components/AddressForm/AddressForm';
 import { AuthContext } from '../../contexts/AuthContext';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ToastContext } from '../../contexts/ToastContext';
 import { CartContext } from '../../contexts/CartContext';
+import { WishListContext } from '../../contexts/WishListContext';
 
 
 
@@ -18,8 +19,11 @@ export const Profile = () => {
     const { setIsAddressFormOpen, isAddressFormOpen, addresses, currentUser, updateAddressFormHandler, setFillData, emptyFormData, deleteAddressFormHandler } = useContext(UserDetailsContext)
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
     const {setCart} = useContext(CartContext)
+    const {setWishList} = useContext(WishListContext)
     const {notify} = useContext(ToastContext)
     const [shouldShowTab, setShouldShowTab] = useState("profile");
+
+    const navigate = useNavigate()
 
     const toogleTab = (tab) => {
         setShouldShowTab(shouldShowTab => shouldShowTab = tab)
@@ -88,7 +92,7 @@ export const Profile = () => {
                                 </div>
                                 <div className="profileActionBtns">
                                     <button onClick={()=>{notify("userLoggedOut");     setIsLoggedIn(false);
-      setCart([]);}} className="logoutBtn"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+      setCart([]);setWishList([]); navigate("/")}} className="logoutBtn"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
                                 </div>
                             </div>)}
                     </div>

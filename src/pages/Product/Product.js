@@ -1,4 +1,4 @@
-import { useParams, NavLink, useNavigate } from "react-router-dom";
+import { useParams, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { ProductsContext } from "../../contexts/ProductsContext";
 import { useContext } from "react";
 import "./Product.css"
@@ -6,6 +6,7 @@ import { NavigationBar } from "../../components/NavigationBar";
 import { WishListContext } from "../../contexts/WishListContext";
 import { CartContext } from "../../contexts/CartContext";
 import { ToastContext } from "../../contexts/ToastContext";
+import { AuthContext } from "../../contexts/AuthContext";
 export const Product = () => {
 
     const { cart, addToCartHandler } = useContext(CartContext)
@@ -15,6 +16,9 @@ export const Product = () => {
     const { productsData } = useContext(ProductsContext)
     const { productId } = useParams();
     const currentProduct = productsData.find(({ _id }) => productId === _id)
+
+    const {isLoggedIn} = useContext(AuthContext);
+    const location = useLocation();
 
     const navigate = useNavigate();
     !currentProduct && navigate("/products")
@@ -44,10 +48,10 @@ export const Product = () => {
                         {cart.find((product) => product?._id === currentProduct?._id) ?
                             <NavLink to="/cart"> <button className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </button></NavLink>
                             :
-                            <button onClick={() => { notify("addToCart"); addToCartHandler(currentProduct) }} className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
+                            <button onClick={isLoggedIn ? () => { notify("addToCart"); addToCartHandler(currentProduct) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                         }
 
-                        {wishList.find((product) => product._id === currentProduct._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={() => { notify("addToWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn"><i className="fa fa-heart" aria-hidden="true"></i> Move to WishList</button>)}
+                        {wishList.find((product) => product._id === currentProduct._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={isLoggedIn ? () => { notify("addToWishlist"); addToWishListHandler(currentProduct) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="actionBtn"><i className="fa fa-heart" aria-hidden="true"></i> Move to WishList</button>)}
                     </div>
                 </div>
             </div></div>
