@@ -4,10 +4,11 @@ import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Checkout.css"
 import { UserDetailsContext } from "../../contexts/UserDetailsContext"
+import { AddressForm } from "../../components/AddressForm/AddressForm";
 // import { ToastContext } from "../../contexts/ToastContext";
 export const Checkout = () => {
     const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, } = useContext(CartContext);
-    const { addresses, currentAddress, currentAddressSelector } = useContext(UserDetailsContext)
+    const { addresses, currentAddress, currentAddressSelector, setFillData,emptyFormData,isAddressFormOpen,setIsAddressFormOpen } = useContext(UserDetailsContext)
     // const { notify } = useContext(ToastContext);
 
 
@@ -89,7 +90,11 @@ export const Checkout = () => {
                         </div>
                     </div>
                     <div className="checkoutItemsDiv">
+                    
                         <div className="checkoutAddressDiv">
+                        <div className="addNewAddressBtnDiv">
+                                <button onClick={() => { setIsAddressFormOpen(true); setFillData(emptyFormData) }} className="addnewAddressBtn"><i className="fa fa-plus"></i> Add New Address</button>
+                            </div>
                             <h3>Select Address: </h3>
                             {
                                 addresses.map((item) => {
@@ -120,7 +125,7 @@ export const Checkout = () => {
                     </div>
 
                 </div>
-
+                {isAddressFormOpen && <AddressForm />}
             </div>
         </>
     )
