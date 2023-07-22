@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { ProductsContext } from "../../contexts/ProductsContext"
 import "./Products.css"
 import { NavLink, useLocation, useNavigate } from "react-router-dom"
@@ -10,6 +10,10 @@ import { AuthContext } from "../../contexts/AuthContext"
 import { Loader } from "../../components/Loader/Loader"
 
 export const Products = () => {
+
+      
+        const [toggleFilterStyle, setToggleFilterStyle] = useState(false);
+
         const { myFilters, sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
         const { cart, addToCartHandler } = useContext(CartContext)
         const { wishList, addToWishListHandler } = useContext(WishListContext);
@@ -34,17 +38,21 @@ export const Products = () => {
           
             }, [setIsLoading]);
 
+
+
         return (
             <>
               {isLoading && <Loader/>}
                 <div className="main">
                     <NavigationBar />
                     <div className="contentAndFilterDiv">
-                        <div className="filterDiv">
+                        <div className={!toggleFilterStyle ? "filterDiv" :"filterDiv showFilterDivSm"}>
                             <div className="clearFilter">
                                 <h3>Filters</h3>
                                 <button className="clearFilterBtn" onClick={clearFilters}>Clear</button>
                             </div>
+                        
+                            <div className="price-rangeDiv">
                             <h3>Price : {priceFilter}</h3>
                             <div className="price-range">
                                 <p>100</p>
@@ -54,22 +62,26 @@ export const Products = () => {
                             <div className="SliderFilterDiv">
                                 <label><input onChange={(e) => priceSliderHandler(e.target.value)} className="slider" type="range" min="100" max="1000" value={priceFilter} /></label>
                             </div>
-                            <h3>Category</h3>
+                            </div>
+                           
+                          
                             <div className="CheckBoxFilterDiv">
-
+                                <h3>Category</h3>
                                 <label><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Fiction")} value="Fiction" type="checkbox" />Fiction</label>
                                 <label><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Non Fiction")} value="Non Fiction" type="checkbox" />Non-Fiction</label>
                                 <label><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Self Help")} value="Self Help" type="checkbox" />Self Help</label>
                             </div>
-                            <h3>Rating</h3>
+                           
                             <div className="radioFilterDiv">
+                            <h3>Rating</h3>
                                 <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 1} type="radio" name="radio" value="1" />1 star and above</label>
                                 <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 2} type="radio" name="radio" value="2" />2 star and above</label>
                                 <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 3} type="radio" name="radio" value="3" />3 star and above</label>
                                 <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 4} type="radio" name="radio" value="4" />4 star and above</label>
                             </div>
-                            <h3>Sort By</h3>
+                            
                             <div className="radioFilterDiv">
+                            <h3>Sort By</h3>
                                 <label><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "lToH"} type="radio" name="radio1" value="lToH" />Price - Low To High</label>
                                 <label><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "hToL"} type="radio" name="radio1" value="hToL" />Price - High To Low</label>
                             </div>
@@ -77,7 +89,7 @@ export const Products = () => {
                         <div className="showingResultsDiv">
                             <div className="showingResultsHeader">
                                 <p>Showing All Products ({sortFiltered.length})</p>
-                                <p className="filterIcon"><i className="fa fa-filter" aria-hidden="true"></i></p>
+                                <p className="filterIcon" onClick={()=>setToggleFilterStyle(!toggleFilterStyle)}role= "button" ><i className="fa fa-filter" aria-hidden="true"></i></p>
                             </div>
                             <div className="productsDiv">
                             {
