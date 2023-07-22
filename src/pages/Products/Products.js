@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { ProductsContext } from "../../contexts/ProductsContext"
 import "./Products.css"
 import { NavLink, useLocation, useNavigate } from "react-router-dom"
@@ -7,6 +7,7 @@ import { CartContext } from "../../contexts/CartContext"
 import { WishListContext } from "../../contexts/WishListContext"
 import { ToastContext } from "../../contexts/ToastContext"
 import { AuthContext } from "../../contexts/AuthContext"
+import { Loader } from "../../components/Loader/Loader"
 
 export const Products = () => {
         const { myFilters, sortFiltered, clearFilters, priceSliderHandler, checkboxHandler, radioHandler, sortHandler } = useContext(ProductsContext)
@@ -22,9 +23,20 @@ export const Products = () => {
             categoryFilter,
             ratingFilter,
             sortFilter } = myFilters
+            const {isLoading, setIsLoading} = useContext(ProductsContext)
+            useEffect(() => {
+              document.body.style.zoom = "90%";
+          
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false);
+              }, 1000);
+          
+            }, [setIsLoading]);
 
         return (
             <>
+              {isLoading && <Loader/>}
                 <div className="main">
                     <NavigationBar />
                     <div className="contentAndFilterDiv">

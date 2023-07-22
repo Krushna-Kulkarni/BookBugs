@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const ProductsContext = createContext();
 export const ProductProvider = ({ children }) => {
+    const [isLoading, setIsLoading] = useState(false)
     const [productsData, setProductsData] = useState([])
     const [searchText, setSearchText] = useState("")
 
@@ -100,7 +101,7 @@ export const ProductProvider = ({ children }) => {
 
 
 
-    return (<ProductsContext.Provider value={{ productsData, myFilters, searchText, priceSliderHandler, radioHandler, sortHandler, searchTextHandler, checkboxHandler, searchClickHandler, sortFiltered, clearFilters }}>
+    return (<ProductsContext.Provider value={{ productsData, myFilters, searchText, priceSliderHandler, radioHandler, sortHandler, searchTextHandler, checkboxHandler, searchClickHandler, sortFiltered, clearFilters,isLoading, setIsLoading }}>
         {children}
     </ProductsContext.Provider>)
 }
