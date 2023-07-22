@@ -25,7 +25,7 @@ export const Product = () => {
     return (
         <><div className="productMain">
             <NavigationBar />
-            <h1 className="heading">Book Details</h1>
+            <h2 className="heading">Book Details</h2>
             <div className="productContentDiv"><div classkey={currentProduct?._id} className="product-Div">
                 <div className="img-Div"><img className="productImg" src={`${currentProduct?.img}`} alt="book" width="250px" height="370px" /></div>
                 <div className="bookDetailsDiv">

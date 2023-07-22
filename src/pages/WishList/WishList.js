@@ -28,7 +28,7 @@ export const WishList = () => {
                                 return (
                                     <div key={_id} className="wishListItem">
                                         <div className="wishListItemDetailsDiv">
-                                            <NavLink to={`/products/${_id}`}> <div className="wishListItemImg"><img src={`${img}`} alt="wishListItmImg" width="150px" height="250px" /></div></NavLink>
+                                            <NavLink to={`/products/${_id}`}> <div className="wishListItmImgDiv"><img src={`${img}`} alt="wishListItmImg" className="wishListItmImg" width="150px" height="250px" /></div></NavLink>
                                             <div className="wishListItemDetails">
                                                 <h4><NavLink to={`/products/${_id}`}>{name}</NavLink></h4>
                                                 <h5>Author: <b>{author}</b></h5>
