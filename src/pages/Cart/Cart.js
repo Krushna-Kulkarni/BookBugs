@@ -52,7 +52,7 @@ export const Cart = () => {
                         <div className="cartItemsSummaryDiv">
                             <div className="couponDiv">
                                 <p>Get 5% off ?</p>
-                                <button disabled={isCouponApplied} onClick={() => applyCouponHandler()} className="couponBtn">Apply Coupon</button>
+                                <button disabled={isCouponApplied} onClick={() => applyCouponHandler()} className="couponBtn">{!isCouponApplied ? "Apply Coupon":"Applied"}</button>
                             </div>
                             <div className="ItemDetailsandPrice">
                                 <div className="ItemDetails">
