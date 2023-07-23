@@ -1,15 +1,16 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavigationBar } from "../../components/NavigationBar"
 import { CartContext } from "../../contexts/CartContext"
 import "./Checkout.css"
 import { UserDetailsContext } from "../../contexts/UserDetailsContext"
 import { AddressForm } from "../../components/AddressForm/AddressForm";
-// import { ToastContext } from "../../contexts/ToastContext";
+import { OrderSuccess } from "../../components/OrderSuccess/OrderSuccess";
+
 export const Checkout = () => {
     const { cart, totalItems, priceOfAllItems, totalPriceDiscount, couponDiscount, totalPrice, } = useContext(CartContext);
     const { addresses, currentAddress, currentAddressSelector, setFillData,emptyFormData,isAddressFormOpen,setIsAddressFormOpen } = useContext(UserDetailsContext)
-    // const { notify } = useContext(ToastContext);
+    const [showOrderPlacedModal, setShowOrderPlacedModal] = useState(false)
 
 
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ export const Checkout = () => {
 
     return (
         <>
-
+       
             <NavigationBar />
 
             <div className="checkoutBox">
@@ -85,7 +86,7 @@ export const Checkout = () => {
                                 <p>Phone: {currentAddress?.phone}</p>
                             </div>
                             <div className="placeOrderDiv">
-                                <button className="placeOrderActionBtn">Place Order</button>
+                                <button onClick={()=> {console.log("here");setShowOrderPlacedModal(true)}} className="placeOrderActionBtn">Place Order</button>
                             </div>
                         </div>
                     </div>
@@ -126,6 +127,7 @@ export const Checkout = () => {
 
                 </div>
                 {isAddressFormOpen && <AddressForm />}
+                {showOrderPlacedModal && <OrderSuccess/>}
             </div>
         </>
     )
