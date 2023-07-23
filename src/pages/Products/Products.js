@@ -117,7 +117,7 @@ export const Products = () => {
                                                     <p><b>₹{price}</b> <s> ₹{originalPrice}</s> <small className="discountPercentage">{Math.round(((originalPrice - price) / originalPrice) * 100)}% off</small> </p>
                                                 </div>
                                                 {cart.find((item) => item._id === product._id) ? <div className="addToCartBtn" >
-                                                    <NavLink to="/cart"><button className="goToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </button></NavLink>
+                                                  <button onClick={()=>navigate("/cart")} className="goToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Go to Cart </button>
                                                 </div> : <div className="addToCartBtn">
                                                     <button onClick={isLoggedIn ? () => { notify("addToCart"); addToCartHandler(product) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="addToCart"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                                                 </div>}
