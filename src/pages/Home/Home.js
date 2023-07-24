@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import "./Home.css"
 import { NavigationBar } from "../../components/NavigationBar"
 import { useContext, useEffect } from "react"
@@ -8,7 +8,7 @@ import { Loader } from "../../components/Loader/Loader"
 export const Home = () => {
 
     const { isLoading, setIsLoading,checkboxHandler } = useContext(ProductsContext)
-  
+    const navigate = useNavigate();
             useEffect(() => {
               setIsLoading(true);
               setTimeout(() => {
@@ -39,21 +39,21 @@ export const Home = () => {
 
                 <div className="homeCategories">
 
-                    <NavLink onClick={() => checkboxHandler("Self Help")} to="/products"><div className="categoryVector">
+                    <div onClick={() => {checkboxHandler("Self Help"); navigate("/products")}} className="categoryVector">
                         <div className="categoryType">Self Help</div>
                         <img src="https://static.vecteezy.com/system/resources/previews/023/414/778/original/help-yourself-grow-flat-concept-spot-illustration-self-improvement-woman-2d-cartoon-character-on-white-for-web-ui-design-personal-development-i-love-me-isolated-editable-creative-hero-image-vector.jpg" alt="self help" width="100%" height="100%" />
 
-                    </div></NavLink>
-                    <NavLink onClick={() => checkboxHandler("Fiction")} to="/products"><div className="categoryVector">
+                    </div>
+                    <div onClick={() => {checkboxHandler("Fiction"); navigate("/products")}} className="categoryVector">
                         <div className="categoryType">Fiction</div>
                         <img src="https://img.freepik.com/premium-photo/magic-fairy-tale-book-with-galaxy-landscape_23-2150132993.jpg" alt="fiction" width="100%" height="100%" />
 
-                    </div></NavLink>
-                    <NavLink  onClick={() => checkboxHandler("Non Fiction")} to="/products"><div className="categoryVector">
+                    </div>
+                    <div onClick={() => {checkboxHandler("Non Fiction"); navigate("/products")}} className="categoryVector">
                         <div className="categoryType">Non-Fiction</div>
                         <img src="https://st.depositphotos.com/1526816/2616/v/600/depositphotos_26162277-stock-illustration-a-book-with-a-castle.jpg" alt="non fiction" width="100%" height="100%" />
 
-                    </div></NavLink>
+                    </div>
                 </div>
 
                 <div className="footer">
