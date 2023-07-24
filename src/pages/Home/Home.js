@@ -39,17 +39,17 @@ export const Home = () => {
 
                 <div className="homeCategories">
 
-                    <NavLink to="/products"><div onClick={() => checkboxHandler("Self Help")} className="categoryVector">
+                    <NavLink onClick={() => checkboxHandler("Self Help")} to="/products"><div className="categoryVector">
                         <div className="categoryType">Self Help</div>
                         <img src="https://static.vecteezy.com/system/resources/previews/023/414/778/original/help-yourself-grow-flat-concept-spot-illustration-self-improvement-woman-2d-cartoon-character-on-white-for-web-ui-design-personal-development-i-love-me-isolated-editable-creative-hero-image-vector.jpg" alt="self help" width="100%" height="100%" />
 
                     </div></NavLink>
-                    <NavLink to="/products"><div onClick={() => checkboxHandler("Fiction")} className="categoryVector">
+                    <NavLink onClick={() => checkboxHandler("Fiction")} to="/products"><div className="categoryVector">
                         <div className="categoryType">Fiction</div>
                         <img src="https://img.freepik.com/premium-photo/magic-fairy-tale-book-with-galaxy-landscape_23-2150132993.jpg" alt="fiction" width="100%" height="100%" />
 
                     </div></NavLink>
-                    <NavLink to="/products"><div onClick={() => checkboxHandler("Non Fiction")} className="categoryVector">
+                    <NavLink  onClick={() => checkboxHandler("Non Fiction")} to="/products"><div className="categoryVector">
                         <div className="categoryType">Non-Fiction</div>
                         <img src="https://st.depositphotos.com/1526816/2616/v/600/depositphotos_26162277-stock-illustration-a-book-with-a-castle.jpg" alt="non fiction" width="100%" height="100%" />
 
