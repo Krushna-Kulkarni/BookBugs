@@ -34,7 +34,7 @@ export const Home = () => {
                 </div>
 
                 <div className="categorySectionHeading">
-                    <h1>Explore Catogories</h1>
+                    <h1>Explore Categories</h1>
                 </div>
 
                 <div className="homeCategories">
