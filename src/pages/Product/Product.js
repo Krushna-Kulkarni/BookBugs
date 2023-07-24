@@ -51,7 +51,7 @@ export const Product = () => {
                             <button onClick={isLoggedIn ? () => { notify("addToCart"); addToCartHandler(currentProduct) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="actionBtn"><i className="fa fa-shopping-cart" aria-hidden="true"></i> Add To Cart</button>
                         }
 
-                        {wishList.find((product) => product._id === currentProduct._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From WishList</button>) : (<button onClick={isLoggedIn ? () => { notify("addToWishlist"); addToWishListHandler(currentProduct) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="actionBtn"><i className="fa fa-heart" aria-hidden="true"></i> Move to WishList</button>)}
+                        {wishList.find((product) => product._id === currentProduct._id) ? (<button onClick={() => { notify("removeFromWishlist"); addToWishListHandler(currentProduct) }} className="actionBtn">Remove From Wishlist</button>) : (<button onClick={isLoggedIn ? () => { notify("addToWishlist"); addToWishListHandler(currentProduct) } : () => { notify("pleaseLogin");navigate("/login", {state: {from:location}} ) }} className="actionBtn"><i className="fa fa-heart" aria-hidden="true"></i> Move to Wishlist</button>)}
                     </div>
                 </div>
             </div></div>
