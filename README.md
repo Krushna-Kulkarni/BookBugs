@@ -11,7 +11,7 @@
 ## **How to install and run locally ?**
 
 ```
-$ git clone
+$ git clone https://github.com/Krushna-Kulkarni/BookBugs
 $ cd bookbugs
 $ npm install
 $ npm start
@@ -28,6 +28,7 @@ $ npm start
 - Wishlist managment
 - Address Managment
 - Checkout page
+- Alerts and Loaders
 - Authentication:
   - User Signup
   - User Login

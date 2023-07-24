@@ -29,8 +29,6 @@ export const Products = () => {
             sortFilter } = myFilters
             const {isLoading, setIsLoading} = useContext(ProductsContext)
             useEffect(() => {
-              document.body.style.zoom = "90%";
-          
               setIsLoading(true);
               setTimeout(() => {
                 setIsLoading(false);

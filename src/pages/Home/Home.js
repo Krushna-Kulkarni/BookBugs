@@ -1,14 +1,25 @@
 import { NavLink } from "react-router-dom"
 import "./Home.css"
 import { NavigationBar } from "../../components/NavigationBar"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { ProductsContext } from "../../contexts/ProductsContext"
+import { Loader } from "../../components/Loader/Loader"
 
 export const Home = () => {
 
-    const { checkboxHandler } = useContext(ProductsContext)
+    const { isLoading, setIsLoading,checkboxHandler } = useContext(ProductsContext)
+  
+            useEffect(() => {
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false);
+              }, 1000);
+          
+            }, [setIsLoading]);
 
     return (
+<>
+{isLoading && <Loader/>}
         <div className="homeMain">
             <NavigationBar />
             <div className="homeBox">
@@ -62,5 +73,6 @@ export const Home = () => {
 
             </div>
         </div >
+</>
     )
 }
