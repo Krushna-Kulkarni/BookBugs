@@ -11,6 +11,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { ToastContext } from '../../contexts/ToastContext';
 import { CartContext } from '../../contexts/CartContext';
 import { WishListContext } from '../../contexts/WishListContext';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
 
 
@@ -21,6 +22,7 @@ export const Profile = () => {
     const {setCart} = useContext(CartContext)
     const {setWishList} = useContext(WishListContext)
     const {notify} = useContext(ToastContext)
+    const {clearFilters} = useContext(ProductsContext)
     const [shouldShowTab, setShouldShowTab] = useState("profile");
 
     const navigate = useNavigate()
@@ -91,7 +93,7 @@ export const Profile = () => {
                                     </div>
                                 </div>
                                 <div className="profileActionBtns">
-                                    <button onClick={()=>{notify("userLoggedOut");     setIsLoggedIn(false);
+                                    <button onClick={()=>{notify("userLoggedOut"); clearFilters() ;setIsLoggedIn(false);
       setCart([]);setWishList([]); navigate("/")}} className="logoutBtn"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
                                 </div>
                             </div>)}
