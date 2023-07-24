@@ -157,6 +157,9 @@ a {
     top: 3%;
 }
 
+.wishlist-icon:hover{
+    color: red;
+}
 
 
 .wishlist-icon-filled {
@@ -231,11 +234,8 @@ p {
 
 }
 
-.goToCart {
-    width: 200%;
-}
 
-.addToCart:hover {
+.addToCart:hover, .goToCart:hover {
     background-color: aliceblue;
     color: black;
     cursor: pointer;

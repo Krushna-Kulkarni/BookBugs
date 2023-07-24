@@ -120,6 +120,11 @@
     cursor: pointer;
 }
 
+.placeOrderActionBtn:hover{
+    background-color: aliceblue;
+    color: black; 
+}
+
 
 
 

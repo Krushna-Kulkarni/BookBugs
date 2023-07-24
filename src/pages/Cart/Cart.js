@@ -72,7 +72,7 @@ export const Cart = () => {
                             </div>
                             <div className="checkoutDiv">
                                 <p className="discountPercentage">You will save ₹{totalPriceDiscount + couponDiscount} on this order</p>
-                                <NavLink to="/checkout"><button className="checkoutActionBtn">CheckOut</button></NavLink>
+                                <NavLink to="/checkout"><button className="checkoutActionBtn">Checkout</button></NavLink>
                             </div>
                         </div>
                     </div>
