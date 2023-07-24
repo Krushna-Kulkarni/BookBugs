@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { ProductsContext } from "../contexts/ProductsContext"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { CartContext } from "../contexts/CartContext"
 import { WishListContext } from "../contexts/WishListContext"
 
@@ -10,7 +10,7 @@ export const NavigationBar = () => {
     const { searchText, searchTextHandler, searchClickHandler } = useContext(ProductsContext)
     const { cart } = useContext(CartContext);
     const { wishList } = useContext(WishListContext);
-
+    const navigate = useNavigate();
 
 
     return (
@@ -22,7 +22,7 @@ export const NavigationBar = () => {
                 </div>
                 <div className="searchBarDiv">
                     <input onChange={(e) => searchTextHandler(e.target.value)} value={searchText} type="text" className="searchbar" placeholder="Search books..." />
-                    <NavLink to="/products"><button onClick={searchClickHandler} className="searchbtn"><i className="fa fa-search"></i></button></NavLink>
+                   <button onClick={()=>{searchClickHandler(); navigate("/products")}} className="searchbtn"><i className="fa fa-search"></i></button>
                 </div>
                 <div className="profileDetailsDiv">
                     <p className="navIcon"><NavLink to="/products"><i className="fa fa-compass" aria-hidden="true"></i></NavLink></p>
