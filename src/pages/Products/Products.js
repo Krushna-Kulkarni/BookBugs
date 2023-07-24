@@ -65,23 +65,23 @@ export const Products = () => {
                           
                             <div className="CheckBoxFilterDiv">
                                 <h3>Category</h3>
-                                <label><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Fiction")} value="Fiction" type="checkbox" />Fiction</label>
-                                <label><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Non Fiction")} value="Non Fiction" type="checkbox" />Non-Fiction</label>
-                                <label><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Self Help")} value="Self Help" type="checkbox" />Self Help</label>
+                                <label className="checkbox"><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Fiction")} value="Fiction" type="checkbox" />Fiction</label>
+                                <label className="checkbox"><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Non Fiction")} value="Non Fiction" type="checkbox" />Non-Fiction</label>
+                                <label className="checkbox"><input onChange={(e) => checkboxHandler(e.target.value)} checked={categoryFilter.includes("Self Help")} value="Self Help" type="checkbox" />Self Help</label>
                             </div>
                            
                             <div className="radioFilterDiv">
                             <h3>Rating</h3>
-                                <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 1} type="radio" name="radio" value="1" />1 star and above</label>
-                                <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 2} type="radio" name="radio" value="2" />2 star and above</label>
-                                <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 3} type="radio" name="radio" value="3" />3 star and above</label>
-                                <label><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 4} type="radio" name="radio" value="4" />4 star and above</label>
+                                <label className="radio"><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 1} type="radio" name="radio" value="1" />1 star and above</label>
+                                <label className="radio"><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 2} type="radio" name="radio" value="2" />2 star and above</label>
+                                <label className="radio"><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 3} type="radio" name="radio" value="3" />3 star and above</label>
+                                <label className="radio"><input onChange={(e) => radioHandler(e.target.value)} checked={ratingFilter === 4} type="radio" name="radio" value="4" />4 star and above</label>
                             </div>
                             
                             <div className="radioFilterDiv">
                             <h3>Sort By</h3>
-                                <label><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "lToH"} type="radio" name="radio1" value="lToH" />Price - Low To High</label>
-                                <label><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "hToL"} type="radio" name="radio1" value="hToL" />Price - High To Low</label>
+                                <label className="radio1"><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "lToH"} type="radio" name="radio1" value="lToH" />Price - Low To High</label>
+                                <label className="radio1"><input onChange={(e) => sortHandler(e.target.value)} checked={sortFilter === "hToL"} type="radio" name="radio1" value="hToL" />Price - High To Low</label>
                             </div>
                         </div>
                         <div className="showingResultsDiv">

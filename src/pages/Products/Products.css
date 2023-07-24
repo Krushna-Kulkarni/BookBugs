@@ -53,7 +53,7 @@ a {
     border-radius: 10px;
     width: 5rem;
     height: 2rem;
-
+    cursor: pointer;
 }
 
 .clearFilterBtn:hover {
@@ -83,6 +83,13 @@ a {
 .radioFilterDiv {
     display: flex;
     flex-direction: column;
+}
+
+.slider,
+.checkbox,
+.radio,
+.radio1{
+    cursor: pointer;
 }
 
 
