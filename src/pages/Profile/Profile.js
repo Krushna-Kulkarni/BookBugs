@@ -66,7 +66,7 @@ export const Profile = () => {
                                             </div>
                                             <div className="addressActionBtns">
                                                 <button onClick={() => updateAddressFormHandler(item)} className="editAddressBtn"> <i className="fa fa-edit"></i> Edit</button>
-                                                <button onClick={() => deleteAddressFormHandler(id)} className="deleteAddressBtn"><i className="fa fa-trash"></i> Delete</button>
+                                                <button onClick={() => {deleteAddressFormHandler(id); notify("addressDeleted")}} className="deleteAddressBtn"><i className="fa fa-trash"></i> Delete</button>
                                             </div>
                                         </div>
                                     )

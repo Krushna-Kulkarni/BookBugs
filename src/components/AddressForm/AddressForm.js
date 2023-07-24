@@ -1,18 +1,19 @@
 import { useContext } from "react"
 import "./AddressForm.css"
 import { UserDetailsContext } from "../../contexts/UserDetailsContext"
+import { ToastContext } from "../../contexts/ToastContext"
 
 export const AddressForm = () => {
 
     const { setIsAddressFormOpen, formSubmitHandler, fillData, dummyData, updateAddressFormHandler } = useContext(UserDetailsContext)
-
+    const {notify} = useContext(ToastContext)
 
     return (<div className="addressMain">
         <div className="addressComponent">
             <div className="addressComponentHeader">
                 <h3>Add New Address</h3>
             </div>
-            <form onSubmit={(e) => formSubmitHandler(e)} className="addressComponentDetailsForm">
+            <form onSubmit={(e) => {notify("addressUpdated");formSubmitHandler(e)}} className="addressComponentDetailsForm">
                 <div className="inputFieldsDiv">
                     <input type="hidden" name="id" defaultValue={fillData.id} />
                     <input type="text" name="firstName" className="inputField" placeholder="Enter First Name" defaultValue={fillData.firstName} required />
