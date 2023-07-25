@@ -11,7 +11,14 @@ export const NavigationBar = () => {
     const { cart } = useContext(CartContext);
     const { wishList } = useContext(WishListContext);
     const navigate = useNavigate();
+    const {setIsLoading} = useContext(ProductsContext)
 
+    const loadingHandler = () => {
+            setIsLoading(true);
+            setTimeout(() => {
+              setIsLoading(false);
+            }, 500)
+    }
 
     return (
         <>
@@ -22,7 +29,7 @@ export const NavigationBar = () => {
                 </div>
                 <div className="searchBarDiv">
                     <input onChange={(e) => searchTextHandler(e.target.value)} value={searchText} type="text" className="searchbar" placeholder="Search books..." />
-                   <button onClick={()=>{searchClickHandler(); navigate("/products")}} className="searchbtn"><i className="fa fa-search"></i></button>
+                   <button onClick={()=>{searchClickHandler(); navigate("/products"); loadingHandler()}} className="searchbtn"><i className="fa fa-search"></i></button>
                 </div>
                 <div className="profileDetailsDiv">
                     <p className="navIcon"><NavLink to="/products"><i className="fa fa-compass" aria-hidden="true"></i></NavLink></p>
