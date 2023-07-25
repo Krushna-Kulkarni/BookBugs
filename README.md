@@ -12,7 +12,7 @@
 
 ```
 $ git clone https://github.com/Krushna-Kulkarni/BookBugs
-$ cd bookbugs
+$ cd BookBugs
 $ npm install
 $ npm start
 ```
