@@ -8,7 +8,7 @@
 <!-- ## **Live link**
 [BookBugs](https://bookbugs.netlify.app) -->
 
-## **How to install and run locally ?**
+## **How to install and run locally?**
 
 ```
 $ git clone https://github.com/Krushna-Kulkarni/BookBugs
@@ -17,7 +17,7 @@ $ npm install
 $ npm start
 ```
 
-## **Features -**
+## **Features**
 
 - Home page
 - Product listing page
@@ -34,7 +34,7 @@ $ npm start
   - User Login
 - Fully Responsive
 
-## **Built with -**
+## **Built with**
 
 - HTML5
 - Vanilla CSS
@@ -42,6 +42,6 @@ $ npm start
 - React Context API
 - React Router v6
 
-## **Demo -**
+## **Demo**
 
-coming soon!
+<div style="position: relative; padding-bottom: 46.5625%; height: 0;"><iframe src="https://www.loom.com/embed/36bf0c2bd68645729061125ee93b288f?sid=0c12d4dd-51b1-49e6-813a-dd88704851cb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
