@@ -44,4 +44,4 @@ $ npm start
 
 ## **Demo**
 
-<div style="position: relative; padding-bottom: 46.5625%; height: 0;"><iframe src="https://www.loom.com/embed/36bf0c2bd68645729061125ee93b288f?sid=0c12d4dd-51b1-49e6-813a-dd88704851cb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+[![BookBugs](https://cdn.loom.com/sessions/thumbnails/36bf0c2bd68645729061125ee93b288f-with-play.gif)](https://www.loom.com/share/36bf0c2bd68645729061125ee93b288f?sid=aa071f2e-f122-4159-a548-88d576cbf394)
