@@ -44,7 +44,3 @@ $ npm start
 - React JS
 - React Context API
 - React Router v6
-
-## **Demo**
-
-[![BookBugs](https://cdn.loom.com/sessions/thumbnails/36bf0c2bd68645729061125ee93b288f-with-play.gif)](https://www.loom.com/share/36bf0c2bd68645729061125ee93b288f?sid=aa071f2e-f122-4159-a548-88d576cbf394)
